@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisitorReg.View.Guard
+namespace VisitorReg.View.Admin
 {
-    public partial class RegisterVisitor : Form
+    public partial class Dashboard : Form
     {
-        public RegisterVisitor()
+        public Dashboard()
         {
             InitializeComponent();
         }
 
-        private void lblVisitor_Click(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
