@@ -16,8 +16,17 @@ namespace VisitorReg.View.Guard
         {
             InitializeComponent();
         }
-
         private void lblVisitor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
         {
 
         }
