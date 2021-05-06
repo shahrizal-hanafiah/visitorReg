@@ -5,3 +5,5 @@
 /.vs
 /VisitorReg.View/VisitorReg.View/bin/Debug
 /VisitorReg.View/VisitorReg.View/obj/Debug
+/VisitorReg.DAL1/obj
+/VisitorReg.DAL1/bin/Debug/netcoreapp3.1
