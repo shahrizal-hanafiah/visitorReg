@@ -7,3 +7,10 @@
 /VisitorReg.View/VisitorReg.View/obj/Debug
 /VisitorReg.DAL1/obj
 /VisitorReg.DAL1/bin/Debug/netcoreapp3.1
+/packages/EntityFramework.6.2.0
+/packages/log4net.2.0.12
+/VisitorReg.DAL/bin/Debug
+/VisitorReg.DAL/obj/Debug
+/VisitorReg.Lib.WinForm/bin/Debug
+/VisitorReg.Lib.WinForm/obj/Debug
+/VisitorReg.WinForm/bin/Debug

@@ -116,5 +116,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VisitorReg.DAL\VisitorReg.DAL.csproj">
+      <Project>{9C8A324F-FE17-4859-A24D-FEA245C5E289}</Project>
+      <Name>VisitorReg.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VisitorReg.Lib.WinForm\VisitorReg.Lib.WinForm.csproj">
+      <Project>{70D4BF94-CFAF-4332-B029-1E8D0AE1C2A8}</Project>
+      <Name>VisitorReg.Lib.WinForm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
