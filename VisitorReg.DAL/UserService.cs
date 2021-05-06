@@ -19,7 +19,7 @@ namespace VisitorReg.DAL
             LoginResponseModel result = new LoginResponseModel();
             string connectionString, sql;
             SqlConnection cnn;
-            connectionString = @"Data Source=MYL-SHANAFIAH\SQLEXPRESS;Database=VisitorReg;Trusted_Connection=True;";
+            connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["VisitorRegDB"].ConnectionString;
             sql = "Select Id,Username,Name,Role from UserInfo Where Username = @Username and Password = @Password";
             using (cnn = new SqlConnection(connectionString))
             {
