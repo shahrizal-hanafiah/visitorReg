@@ -49,7 +49,6 @@ namespace VisitorReg.View.Guard
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgVisitorList = new System.Windows.Forms.DataGridView();
-            this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDateFrom = new System.Windows.Forms.DateTimePicker();
@@ -278,22 +277,12 @@ namespace VisitorReg.View.Guard
             this.dgVisitorList.AllowUserToAddRows = false;
             this.dgVisitorList.AllowUserToDeleteRows = false;
             this.dgVisitorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVisitorList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ItemNo});
             this.dgVisitorList.Location = new System.Drawing.Point(261, 152);
             this.dgVisitorList.Name = "dgVisitorList";
             this.dgVisitorList.RowHeadersWidth = 51;
             this.dgVisitorList.RowTemplate.Height = 24;
             this.dgVisitorList.Size = new System.Drawing.Size(1181, 673);
             this.dgVisitorList.TabIndex = 4;
-            // 
-            // ItemNo
-            // 
-            this.ItemNo.HeaderText = "No.";
-            this.ItemNo.MinimumWidth = 6;
-            this.ItemNo.Name = "ItemNo";
-            this.ItemNo.ReadOnly = true;
-            this.ItemNo.Width = 125;
             // 
             // groupBox1
             // 
@@ -351,6 +340,7 @@ namespace VisitorReg.View.Guard
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // ListVisitor
             // 
@@ -409,7 +399,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgVisitorList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker txtDateTo;
         private System.Windows.Forms.Label label8;
