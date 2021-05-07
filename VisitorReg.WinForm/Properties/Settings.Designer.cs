@@ -22,5 +22,16 @@ namespace VisitorReg.WinForm.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MYL-SHANAFIAH\\SQLEXPRESS;Initial Catalog=VisitorReg;Integrated Securi" +
+            "ty=True")]
+        public string VisitorRegConnectionString {
+            get {
+                return ((string)(this["VisitorRegConnectionString"]));
+            }
+        }
     }
 }
