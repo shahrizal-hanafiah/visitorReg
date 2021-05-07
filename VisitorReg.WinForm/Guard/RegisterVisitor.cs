@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisitorReg.DAL;
+using VisitorReg.Lib.WinForm;
+using VisitorReg.Lib.WinForm.Enum;
+using VisitorReg.Lib.WinForm.Models.Visitor;
 
 namespace VisitorReg.View.Guard
 {
     public partial class RegisterVisitor : Form
     {
+        private VisitorService visitorService = new VisitorService();
+        private UserService userService = new UserService();
         public RegisterVisitor()
         {
             InitializeComponent();
@@ -21,22 +28,22 @@ namespace VisitorReg.View.Guard
         private void OnLoad()
         {
             txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtDateOut.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            txtDateOut.Mask = "00/00/0000";
             cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
             cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
             cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
-            cmbHourOut.SelectedItem = DateTime.Now.ToString("HH");
-            cmbMinutesOut.SelectedItem = DateTime.Now.ToString("mm");
-            cmbPeriodOut.SelectedItem = DateTime.Now.ToString("tt");
             txtOthers.Enabled = false;
-            lblNameRequired.Hide();
-            lblICNoRequired.Hide();
-            lblNoPlateRequired.Hide();
-            lblPassNoRequired.Hide();
-            lblHouseNoRequired.Hide();
-            lblPurposeVisitRequired.Hide();
+            lblNameRequired.Show();
+            lblICNoRequired.Show();
+            lblNoPlateRequired.Show();
+            lblPassNoRequired.Show();
+            lblHouseNoRequired.Show();
+            lblPurposeVisitRequired.Show();
             lblOtherRequired.Hide();
             lblTimeInRequired.Hide();
+            lblTimeOutRequired.Hide();
+            lblDatetimeOutRequired.Hide();
         }
 
         private void cmbPurpose_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,49 +54,57 @@ namespace VisitorReg.View.Guard
                 cmbPurpose.Focus();
                 return;
             }
-            if (cmbPurpose.SelectedItem != null){
+            else
+            {
+                lblPurposeVisitRequired.Hide();
                 if (cmbPurpose.SelectedItem.ToString() == "Others")
                 {
                     txtOthers.ReadOnly = false;
                     txtOthers.Enabled = true;
+                    lblOtherRequired.Show();
                 }
                 else
                 {
                     txtOthers.Text = "";
                     txtOthers.ReadOnly = true;
                     txtOthers.Enabled = false;
+                    lblOtherRequired.Hide();
                 }
             }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtVisitorName.Text = "";
-            txtVisitorIC.Text = "";
-            txtContactNo.Text = "";
-            txtVisitorICOld.Text = "";
-            txtNoPlate.Text = "";
-            txtPassNo.Text = "";
-            txtHouseNo.Text = "";
-            cmbPurpose.SelectedIndex = -1;
-            txtOthers.Text = "";
-            txtOthers.ReadOnly = true;
-            txtOthers.Enabled = false;
-            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtDateOut.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
-            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
-            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
-            cmbHourOut.SelectedItem = DateTime.Now.ToString("HH");
-            cmbMinutesOut.SelectedItem = DateTime.Now.ToString("mm");
-            cmbPeriodOut.SelectedItem = DateTime.Now.ToString("tt");
+            Reset();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Validation())
             {
-                MessageBox.Show("Successfully saved visitor record!");
+                DateTime? NullDatetime = null;
+                var visitor = new VisitorModel()
+                {
+                    Name = txtVisitorName.Text,
+                    ICNo = txtVisitorIC.Text,
+                    ContactNo = txtContactNo.Text,
+                    OldICNo = txtVisitorICOld.Text,
+                    NoPlate  =txtNoPlate.Text,
+                    PassNo = txtPassNo.Text,
+                    HouseNo = txtHouseNo.Text,
+                    PurposeVisit = cmbPurpose.SelectedItem.ToString() == "Others"?txtOthers.Text:cmbPurpose.SelectedText,
+                    DateTimeIn = Convert.ToDateTime($"{txtDateIn.Text} {cmbHourIn.SelectedItem}:{cmbMinutesIn.SelectedItem} {cmbPeriodIn.SelectedItem}", new CultureInfo("ms-MY")),
+                    DateTimeOut = cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0 ? Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY")) : NullDatetime,
+                    CreatedBy = UserInfo.Username,
+                    CreateDate = DateTime.Now
+                };
+                var result = visitorService.Insert(visitor);
+                if (result.MessageType == MessageType.Success)
+                {
+                    Reset();
+                }
+
+                MessageBox.Show(result.Message, result.MessageType.ToString());
             }
             else
             {
@@ -134,12 +149,17 @@ namespace VisitorReg.View.Guard
                 lblHouseNoRequired.Show();
                 txtHouseNo.Focus();
                 return false;
-            } else if(cmbHourIn.SelectedIndex < 0 || cmbMinutesIn.SelectedIndex < 0 || cmbPeriodIn.SelectedIndex < 0)
+            } else if(txtDateOut.Text.Length > 0 && (cmbHourOut.SelectedIndex < 0 || cmbMinutesOut.SelectedIndex < 0 || cmbPeriodOut.SelectedIndex < 0))
             {
-                lblTimeInRequired.Show();
-                cmbHourIn.Focus();
+                lblTimeOutRequired.Show();
+                cmbHourOut.Focus();
                 return false;
-            } 
+            } else if(txtDateOut.Text.Length == 0 && (cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0))
+            {
+                lblDatetimeOutRequired.Show();
+                txtDateOut.Focus();
+                return false;
+            }
 
             return true;
         }
@@ -150,6 +170,10 @@ namespace VisitorReg.View.Guard
             {
                 lblNameRequired.Show();
                 txtVisitorName.Focus();
+            }
+            else
+            {
+                lblNameRequired.Hide();
             }
         }
 
@@ -162,6 +186,7 @@ namespace VisitorReg.View.Guard
             }
             else
             {
+                lblICNoRequired.Hide();
                 txtVisitorIC.Text.ToUpper();
             }
         }
@@ -178,6 +203,7 @@ namespace VisitorReg.View.Guard
                 txtNoPlate.Text = txtNoPlate.Text.ToUpper();
                 txtNoPlate.SelectionStart = txtNoPlate.Text.Length;
                 txtNoPlate.SelectionLength = 0;
+                lblNoPlateRequired.Hide();
             }
         }
 
@@ -190,7 +216,10 @@ namespace VisitorReg.View.Guard
             }
             else
             {
-                txtPassNo.Text.ToUpper();
+                txtPassNo.Text = txtPassNo.Text.ToUpper();
+                txtPassNo.SelectionStart = txtPassNo.Text.Length;
+                txtPassNo.SelectionLength = 0;
+                lblPassNoRequired.Hide();
             }
         }
 
@@ -203,6 +232,7 @@ namespace VisitorReg.View.Guard
             }
             else
             {
+                lblHouseNoRequired.Hide();
                 txtHouseNo.Text.ToUpper();
             }
         }
@@ -215,6 +245,10 @@ namespace VisitorReg.View.Guard
                 txtOthers.Focus();
                 return;
             }
+            else
+            {
+                lblOtherRequired.Hide();
+            }
         }
 
         private void cmbHourIn_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,6 +257,10 @@ namespace VisitorReg.View.Guard
             {
                 lblTimeInRequired.Show();
                 cmbHourIn.Focus();
+            }
+            else
+            {
+                lblTimeInRequired.Hide();
             }
         }
 
@@ -233,6 +271,10 @@ namespace VisitorReg.View.Guard
                 lblTimeInRequired.Show();
                 cmbMinutesIn.Focus();
             }
+            else
+            {
+                lblTimeInRequired.Hide();
+            }
         }
 
         private void cmbPeriodIn_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,6 +284,57 @@ namespace VisitorReg.View.Guard
                 lblTimeInRequired.Show();
                 cmbPeriodIn.Focus();
             }
+            else
+            {
+                lblTimeInRequired.Hide();
+            }
+        }
+
+        private void txtDateOut_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void Reset()
+        {
+            txtVisitorName.Text = "";
+            txtVisitorIC.Text = "";
+            txtContactNo.Text = "";
+            txtVisitorICOld.Text = "";
+            txtNoPlate.Text = "";
+            txtPassNo.Text = "";
+            txtHouseNo.Text = "";
+            cmbPurpose.SelectedIndex = -1;
+            txtOthers.Text = "";
+            txtOthers.ReadOnly = true;
+            txtOthers.Enabled = false;
+            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
+            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
+            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
+            lblTimeOutRequired.Hide();
+            lblDatetimeOutRequired.Hide();
+        }
+
+        private void linkLogout_Click(object sender, EventArgs e)
+        {
+            userService.Logout();
+            this.Hide();
+            var login = new Login();
+            login.Show();
+        }
+
+        private void linkListVisitor_Click(object sender, EventArgs e)
+        {
+            var listVisitor = new ListVisitor();
+            listVisitor.Show();
+            this.Hide();
+        }
+
+        private void linkProfile_Click(object sender, EventArgs e)
+        {
+            var profile = new UserProfile();
+            profile.Show();
+            this.Hide();
         }
     }
 }

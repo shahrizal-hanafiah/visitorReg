@@ -44,11 +44,11 @@ namespace VisitorReg.View.Guard
             this.lblMainNavi = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.linkListVisitor = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linkLogout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkProfile = new System.Windows.Forms.PictureBox();
             this.lblDashboard = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtVisitorName = new System.Windows.Forms.RichTextBox();
@@ -84,6 +84,9 @@ namespace VisitorReg.View.Guard
             this.label29 = new System.Windows.Forms.Label();
             this.txtOthers = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTimeOutRequired = new System.Windows.Forms.Label();
+            this.lblDatetimeOutRequired = new System.Windows.Forms.Label();
+            this.txtDateOut = new System.Windows.Forms.MaskedTextBox();
             this.lblNoPlateRequired = new System.Windows.Forms.Label();
             this.lblOtherRequired = new System.Windows.Forms.Label();
             this.lblTimeInRequired = new System.Windows.Forms.Label();
@@ -92,7 +95,6 @@ namespace VisitorReg.View.Guard
             this.lblPurposeVisitRequired = new System.Windows.Forms.Label();
             this.lblICNoRequired = new System.Windows.Forms.Label();
             this.lblNameRequired = new System.Windows.Forms.Label();
-            this.txtDateOut = new System.Windows.Forms.RichTextBox();
             this.txtDateIn = new System.Windows.Forms.RichTextBox();
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -102,9 +104,9 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,7 +117,7 @@ namespace VisitorReg.View.Guard
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1637, 50);
+            this.panel1.Size = new System.Drawing.Size(1658, 50);
             this.panel1.TabIndex = 0;
             // 
             // lblVisitor
@@ -139,7 +141,7 @@ namespace VisitorReg.View.Guard
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(240, 936);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1397, 46);
+            this.panel3.Size = new System.Drawing.Size(1418, 46);
             this.panel3.TabIndex = 2;
             // 
             // label6
@@ -217,11 +219,11 @@ namespace VisitorReg.View.Guard
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
             this.pnlLeft.Controls.Add(this.label23);
-            this.pnlLeft.Controls.Add(this.pictureBox4);
+            this.pnlLeft.Controls.Add(this.linkListVisitor);
             this.pnlLeft.Controls.Add(this.label2);
-            this.pnlLeft.Controls.Add(this.pictureBox2);
+            this.pnlLeft.Controls.Add(this.linkLogout);
             this.pnlLeft.Controls.Add(this.label1);
-            this.pnlLeft.Controls.Add(this.pictureBox1);
+            this.pnlLeft.Controls.Add(this.linkProfile);
             this.pnlLeft.Controls.Add(this.lblDashboard);
             this.pnlLeft.Controls.Add(this.panel2);
             this.pnlLeft.Controls.Add(this.menuDashboard);
@@ -242,16 +244,17 @@ namespace VisitorReg.View.Guard
             this.label23.TabIndex = 9;
             this.label23.Text = "List Visitor";
             // 
-            // pictureBox4
+            // linkListVisitor
             // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(48, 246);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(135, 136);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.linkListVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkListVisitor.Image = ((System.Drawing.Image)(resources.GetObject("linkListVisitor.Image")));
+            this.linkListVisitor.Location = new System.Drawing.Point(48, 246);
+            this.linkListVisitor.Name = "linkListVisitor";
+            this.linkListVisitor.Size = new System.Drawing.Size(135, 136);
+            this.linkListVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkListVisitor.TabIndex = 10;
+            this.linkListVisitor.TabStop = false;
+            this.linkListVisitor.Click += new System.EventHandler(this.linkListVisitor_Click);
             // 
             // label2
             // 
@@ -264,16 +267,17 @@ namespace VisitorReg.View.Guard
             this.label2.TabIndex = 7;
             this.label2.Text = "Logout";
             // 
-            // pictureBox2
+            // linkLogout
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(48, 623);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(135, 124);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
+            this.linkLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLogout.Image = ((System.Drawing.Image)(resources.GetObject("linkLogout.Image")));
+            this.linkLogout.Location = new System.Drawing.Point(48, 623);
+            this.linkLogout.Name = "linkLogout";
+            this.linkLogout.Size = new System.Drawing.Size(135, 124);
+            this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkLogout.TabIndex = 8;
+            this.linkLogout.TabStop = false;
+            this.linkLogout.Click += new System.EventHandler(this.linkLogout_Click);
             // 
             // label1
             // 
@@ -286,16 +290,17 @@ namespace VisitorReg.View.Guard
             this.label1.TabIndex = 5;
             this.label1.Text = "Profile";
             // 
-            // pictureBox1
+            // linkProfile
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 430);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.linkProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkProfile.Image = ((System.Drawing.Image)(resources.GetObject("linkProfile.Image")));
+            this.linkProfile.Location = new System.Drawing.Point(48, 430);
+            this.linkProfile.Name = "linkProfile";
+            this.linkProfile.Size = new System.Drawing.Size(135, 136);
+            this.linkProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkProfile.TabIndex = 6;
+            this.linkProfile.TabStop = false;
+            this.linkProfile.Click += new System.EventHandler(this.linkProfile_Click);
             // 
             // lblDashboard
             // 
@@ -395,6 +400,7 @@ namespace VisitorReg.View.Guard
             // txtNoPlate
             // 
             this.txtNoPlate.Location = new System.Drawing.Point(180, 223);
+            this.txtNoPlate.MaxLength = 10;
             this.txtNoPlate.Name = "txtNoPlate";
             this.txtNoPlate.Size = new System.Drawing.Size(104, 34);
             this.txtNoPlate.TabIndex = 5;
@@ -633,7 +639,7 @@ namespace VisitorReg.View.Guard
             this.cmbHourOut.Location = new System.Drawing.Point(837, 448);
             this.cmbHourOut.Name = "cmbHourOut";
             this.cmbHourOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbHourOut.TabIndex = 13;
+            this.cmbHourOut.TabIndex = 14;
             // 
             // cmbMinutesOut
             // 
@@ -702,7 +708,7 @@ namespace VisitorReg.View.Guard
             this.cmbMinutesOut.Location = new System.Drawing.Point(924, 448);
             this.cmbMinutesOut.Name = "cmbMinutesOut";
             this.cmbMinutesOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbMinutesOut.TabIndex = 14;
+            this.cmbMinutesOut.TabIndex = 15;
             // 
             // label31
             // 
@@ -722,7 +728,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodOut.Location = new System.Drawing.Point(1005, 448);
             this.cmbPeriodOut.Name = "cmbPeriodOut";
             this.cmbPeriodOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbPeriodOut.TabIndex = 15;
+            this.cmbPeriodOut.TabIndex = 16;
             // 
             // label33
             // 
@@ -793,6 +799,9 @@ namespace VisitorReg.View.Guard
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblTimeOutRequired);
+            this.groupBox1.Controls.Add(this.lblDatetimeOutRequired);
+            this.groupBox1.Controls.Add(this.txtDateOut);
             this.groupBox1.Controls.Add(this.lblNoPlateRequired);
             this.groupBox1.Controls.Add(this.lblOtherRequired);
             this.groupBox1.Controls.Add(this.lblTimeInRequired);
@@ -801,7 +810,6 @@ namespace VisitorReg.View.Guard
             this.groupBox1.Controls.Add(this.lblPurposeVisitRequired);
             this.groupBox1.Controls.Add(this.lblICNoRequired);
             this.groupBox1.Controls.Add(this.lblNameRequired);
-            this.groupBox1.Controls.Add(this.txtDateOut);
             this.groupBox1.Controls.Add(this.txtDateIn);
             this.groupBox1.Controls.Add(this.txtPassNo);
             this.groupBox1.Controls.Add(this.label11);
@@ -846,6 +854,35 @@ namespace VisitorReg.View.Guard
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registration Form";
+            // 
+            // lblTimeOutRequired
+            // 
+            this.lblTimeOutRequired.AutoSize = true;
+            this.lblTimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeOutRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblTimeOutRequired.Location = new System.Drawing.Point(1071, 454);
+            this.lblTimeOutRequired.Name = "lblTimeOutRequired";
+            this.lblTimeOutRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblTimeOutRequired.TabIndex = 77;
+            this.lblTimeOutRequired.Text = "* Required";
+            // 
+            // lblDatetimeOutRequired
+            // 
+            this.lblDatetimeOutRequired.AutoSize = true;
+            this.lblDatetimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatetimeOutRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblDatetimeOutRequired.Location = new System.Drawing.Point(1071, 405);
+            this.lblDatetimeOutRequired.Name = "lblDatetimeOutRequired";
+            this.lblDatetimeOutRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblDatetimeOutRequired.TabIndex = 76;
+            this.lblDatetimeOutRequired.Text = "* Required";
+            // 
+            // txtDateOut
+            // 
+            this.txtDateOut.Location = new System.Drawing.Point(836, 398);
+            this.txtDateOut.Name = "txtDateOut";
+            this.txtDateOut.Size = new System.Drawing.Size(229, 30);
+            this.txtDateOut.TabIndex = 13;
             // 
             // lblNoPlateRequired
             // 
@@ -935,15 +972,6 @@ namespace VisitorReg.View.Guard
             this.lblNameRequired.TabIndex = 67;
             this.lblNameRequired.Text = "* Required";
             // 
-            // txtDateOut
-            // 
-            this.txtDateOut.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtDateOut.Location = new System.Drawing.Point(837, 391);
-            this.txtDateOut.Name = "txtDateOut";
-            this.txtDateOut.Size = new System.Drawing.Size(228, 34);
-            this.txtDateOut.TabIndex = 66;
-            this.txtDateOut.Text = "";
-            // 
             // txtDateIn
             // 
             this.txtDateIn.Location = new System.Drawing.Point(180, 389);
@@ -956,6 +984,7 @@ namespace VisitorReg.View.Guard
             // txtPassNo
             // 
             this.txtPassNo.Location = new System.Drawing.Point(482, 222);
+            this.txtPassNo.MaxLength = 4;
             this.txtPassNo.Name = "txtPassNo";
             this.txtPassNo.Size = new System.Drawing.Size(91, 34);
             this.txtPassNo.TabIndex = 6;
@@ -988,7 +1017,7 @@ namespace VisitorReg.View.Guard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1658, 940);
+            this.ClientSize = new System.Drawing.Size(1679, 940);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlLeft);
@@ -1008,9 +1037,9 @@ namespace VisitorReg.View.Guard
             this.panel2.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -1028,15 +1057,15 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Label lblMainNavi;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox linkProfile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox linkLogout;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox linkListVisitor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox txtVisitorName;
         private System.Windows.Forms.Label label8;
@@ -1074,7 +1103,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox txtPassNo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox txtDateOut;
         private System.Windows.Forms.RichTextBox txtDateIn;
         private System.Windows.Forms.Label lblNameRequired;
         private System.Windows.Forms.Label lblPassNoRequired;
@@ -1084,5 +1112,8 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label lblTimeInRequired;
         private System.Windows.Forms.Label lblOtherRequired;
         private System.Windows.Forms.Label lblNoPlateRequired;
+        private System.Windows.Forms.MaskedTextBox txtDateOut;
+        private System.Windows.Forms.Label lblTimeOutRequired;
+        private System.Windows.Forms.Label lblDatetimeOutRequired;
     }
 }
