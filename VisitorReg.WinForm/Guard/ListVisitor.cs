@@ -18,38 +18,42 @@ namespace VisitorReg.View.Guard
     {
         private VisitorService visitorService = new VisitorService();
         private UserService userService = new UserService();
+        private int PgSize = 20;
+        private int CurrentPageIndex = 1;
+        private int TotalPage = 0;
+        private SqlConnection connection;
+
         public ListVisitor()
         {
             InitializeComponent();
+            var connectionString = Settings.ConnectionString;
+            connection = new SqlConnection(connectionString);
         }
 
         private void ListVisitor_Load(object sender, EventArgs e)
         {
             txtDateFrom.Text = DateTime.Now.Date.ToString();
             txtDateTo.Text = DateTime.Now.Date.ToString();
-
-            PopulateTableVisitor();
+            this.CurrentPageIndex = 1;
+            PopulateTableVisitor(CurrentPageIndex);
         }
 
-        private void PopulateTableVisitor()
+        private void PopulateTableVisitor(int page)
         {
-            string connetionString = null;
-            SqlConnection connection;
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
             int i = 0;
-
-            connetionString = Settings.ConnectionString;
-            var sql = "select ROW_NUMBER() OVER(ORDER BY id ASC) AS #,Name,ICNo as 'IC No.',OldICNo as 'Old Ic No.',NoPlate as 'Car No. Plate'," +
-                      "PassNo as 'Pass No.',HouseNo as 'House No.',PurposeVisit as 'Purpose of visit',DateTimeIn as 'Date & Time In',DateTimeOut as 'Date & Time Out'," + 
-                      "CreateDate as 'Created Date',CreatedBy as 'Created By' from VisitorInfo where DateTimeIn between @DateFrom and @DateTo";
-
-            connection = new SqlConnection(connetionString);
-
             try
             {
                 connection.Open();
+
+                int PreviousPageOffSet = page == 1? PgSize : (page - 1) * PgSize;
+
+                var sql = "select TOP " + PreviousPageOffSet + " ROW_NUMBER() OVER(ORDER BY id ASC) AS #,Name,ICNo as 'IC No.',OldICNo as 'Old Ic No.',NoPlate as 'Car No. Plate'," +
+                      "PassNo as 'Pass No.',HouseNo as 'House No.',PurposeVisit as 'Purpose of visit',DateTimeIn as 'Date & Time In',DateTimeOut as 'Date & Time Out'," +
+                      "CreateDate as 'Created Date',CreatedBy as 'Created By' from VisitorInfo where DateTimeIn between @DateFrom and @DateTo";
+
                 command = new SqlCommand(sql, connection);
                 command.Parameters.Add("@DateFrom", SqlDbType.DateTime);
                 command.Parameters["@DateFrom"].Value = Convert.ToDateTime(txtDateFrom.Text).ToString("yyyy-MM-dd 00:00:00");
@@ -59,9 +63,13 @@ namespace VisitorReg.View.Guard
                 ds.Tables.Add("VisitorInfo");
                 adapter.Fill(ds, "VisitorInfo");
 
+                TotalPage = ds.Tables[0].Rows.Count;
+
                 dgVisitorList.AutoGenerateColumns = true;
                 dgVisitorList.DataSource = ds;
                 dgVisitorList.DataMember = "VisitorInfo";
+                
+
 
                 adapter.Dispose();
                 command.Dispose();
@@ -96,7 +104,38 @@ namespace VisitorReg.View.Guard
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            PopulateTableVisitor();
+            CurrentPageIndex = 1;
+            PopulateTableVisitor(CurrentPageIndex);
+        }
+
+        private void btnFirstPage_Click(object sender, EventArgs e)
+        {
+            CurrentPageIndex = 1;
+            PopulateTableVisitor(CurrentPageIndex);
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (CurrentPageIndex < TotalPage)
+            {
+                CurrentPageIndex = 1;
+                PopulateTableVisitor(CurrentPageIndex);
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (this.CurrentPageIndex > 1)
+            {
+                CurrentPageIndex--;
+                PopulateTableVisitor(CurrentPageIndex);
+            }
+        }
+
+        private void btnLastPage_Click(object sender, EventArgs e)
+        {
+            CurrentPageIndex = TotalPage;
+            PopulateTableVisitor(CurrentPageIndex);
         }
     }
 }

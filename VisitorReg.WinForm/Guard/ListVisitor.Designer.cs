@@ -50,11 +50,17 @@ namespace VisitorReg.View.Guard
             this.label3 = new System.Windows.Forms.Label();
             this.dgVisitorList = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtDateTo = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.grpPagination = new System.Windows.Forms.GroupBox();
+            this.btnFirstPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnLastPage = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
@@ -65,6 +71,7 @@ namespace VisitorReg.View.Guard
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVisitorList)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.grpPagination.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblVisitor
@@ -281,7 +288,7 @@ namespace VisitorReg.View.Guard
             this.dgVisitorList.Name = "dgVisitorList";
             this.dgVisitorList.RowHeadersWidth = 51;
             this.dgVisitorList.RowTemplate.Height = 24;
-            this.dgVisitorList.Size = new System.Drawing.Size(1181, 673);
+            this.dgVisitorList.Size = new System.Drawing.Size(1176, 532);
             this.dgVisitorList.TabIndex = 4;
             // 
             // groupBox1
@@ -298,21 +305,17 @@ namespace VisitorReg.View.Guard
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
-            // label7
+            // btnSearch
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Date From";
-            // 
-            // txtDateFrom
-            // 
-            this.txtDateFrom.Location = new System.Drawing.Point(86, 30);
-            this.txtDateFrom.Name = "txtDateFrom";
-            this.txtDateFrom.Size = new System.Drawing.Size(200, 22);
-            this.txtDateFrom.TabIndex = 1;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(90)))));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSearch.Location = new System.Drawing.Point(662, 25);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(94, 31);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtDateTo
             // 
@@ -330,17 +333,83 @@ namespace VisitorReg.View.Guard
             this.label8.TabIndex = 2;
             this.label8.Text = "Date To";
             // 
-            // btnSearch
+            // txtDateFrom
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(90)))));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSearch.Location = new System.Drawing.Point(662, 25);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 31);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.txtDateFrom.Location = new System.Drawing.Point(86, 30);
+            this.txtDateFrom.Name = "txtDateFrom";
+            this.txtDateFrom.Size = new System.Drawing.Size(200, 22);
+            this.txtDateFrom.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Date From";
+            // 
+            // grpPagination
+            // 
+            this.grpPagination.Controls.Add(this.btnRefresh);
+            this.grpPagination.Controls.Add(this.btnLastPage);
+            this.grpPagination.Controls.Add(this.btnPrevious);
+            this.grpPagination.Controls.Add(this.btnNextPage);
+            this.grpPagination.Controls.Add(this.btnFirstPage);
+            this.grpPagination.Location = new System.Drawing.Point(261, 697);
+            this.grpPagination.Name = "grpPagination";
+            this.grpPagination.Size = new System.Drawing.Size(1176, 100);
+            this.grpPagination.TabIndex = 6;
+            this.grpPagination.TabStop = false;
+            // 
+            // btnFirstPage
+            // 
+            this.btnFirstPage.Location = new System.Drawing.Point(100, 39);
+            this.btnFirstPage.Name = "btnFirstPage";
+            this.btnFirstPage.Size = new System.Drawing.Size(109, 37);
+            this.btnFirstPage.TabIndex = 0;
+            this.btnFirstPage.Text = "First Page";
+            this.btnFirstPage.UseVisualStyleBackColor = true;
+            this.btnFirstPage.Click += new System.EventHandler(this.btnFirstPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Location = new System.Drawing.Point(287, 39);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(109, 37);
+            this.btnNextPage.TabIndex = 1;
+            this.btnNextPage.Text = "Next Page";
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(482, 40);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(109, 37);
+            this.btnPrevious.TabIndex = 2;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnLastPage
+            // 
+            this.btnLastPage.Location = new System.Drawing.Point(680, 40);
+            this.btnLastPage.Name = "btnLastPage";
+            this.btnLastPage.Size = new System.Drawing.Size(109, 37);
+            this.btnLastPage.TabIndex = 3;
+            this.btnLastPage.Text = "Last Page";
+            this.btnLastPage.UseVisualStyleBackColor = true;
+            this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(897, 39);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(109, 37);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // ListVisitor
             // 
@@ -348,6 +417,7 @@ namespace VisitorReg.View.Guard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1465, 900);
+            this.Controls.Add(this.grpPagination);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgVisitorList);
             this.Controls.Add(this.panel3);
@@ -374,6 +444,7 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.dgVisitorList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpPagination.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -405,5 +476,11 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.DateTimePicker txtDateFrom;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.GroupBox grpPagination;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnLastPage;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.Button btnFirstPage;
     }
 }

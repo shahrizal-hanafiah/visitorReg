@@ -1,5 +1,5 @@
 ﻿
-namespace VisitorReg.View
+namespace VisitorReg.View.Guard
 {
     partial class UserProfile
     {
@@ -34,7 +34,7 @@ namespace VisitorReg.View
             this.lblVisitor = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.linkListVisitor = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,36 +42,44 @@ namespace VisitorReg.View
             this.lblDashboard = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblMainNavi = new System.Windows.Forms.Label();
-            this.menuDashboard = new System.Windows.Forms.PictureBox();
+            this.linkRegisterVisitor = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNameRequired = new System.Windows.Forms.Label();
+            this.txtRole = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.txtContactNo = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtVisitorIC = new System.Windows.Forms.RichTextBox();
+            this.txtEmail = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtVisitorName = new System.Windows.Forms.RichTextBox();
+            this.txtName = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtPassNo = new System.Windows.Forms.RichTextBox();
+            this.lblWrongPassword = new System.Windows.Forms.Label();
+            this.lblNotMatch = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.txtOldPass = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtHouseNo = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.txtNoPlate = new System.Windows.Forms.RichTextBox();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkRegisterVisitor)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,7 +92,7 @@ namespace VisitorReg.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1560, 50);
+            this.panel1.Size = new System.Drawing.Size(1690, 50);
             this.panel1.TabIndex = 1;
             // 
             // lblVisitor
@@ -102,14 +110,14 @@ namespace VisitorReg.View
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
             this.pnlLeft.Controls.Add(this.label23);
-            this.pnlLeft.Controls.Add(this.pictureBox4);
+            this.pnlLeft.Controls.Add(this.linkListVisitor);
             this.pnlLeft.Controls.Add(this.label2);
             this.pnlLeft.Controls.Add(this.btnLogout);
             this.pnlLeft.Controls.Add(this.label1);
             this.pnlLeft.Controls.Add(this.pictureBox1);
             this.pnlLeft.Controls.Add(this.lblDashboard);
             this.pnlLeft.Controls.Add(this.panel2);
-            this.pnlLeft.Controls.Add(this.menuDashboard);
+            this.pnlLeft.Controls.Add(this.linkRegisterVisitor);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 50);
             this.pnlLeft.Name = "pnlLeft";
@@ -127,16 +135,17 @@ namespace VisitorReg.View
             this.label23.TabIndex = 9;
             this.label23.Text = "List Visitor";
             // 
-            // pictureBox4
+            // linkListVisitor
             // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(48, 246);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(135, 136);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.linkListVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkListVisitor.Image = ((System.Drawing.Image)(resources.GetObject("linkListVisitor.Image")));
+            this.linkListVisitor.Location = new System.Drawing.Point(48, 246);
+            this.linkListVisitor.Name = "linkListVisitor";
+            this.linkListVisitor.Size = new System.Drawing.Size(135, 136);
+            this.linkListVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkListVisitor.TabIndex = 10;
+            this.linkListVisitor.TabStop = false;
+            this.linkListVisitor.Click += new System.EventHandler(this.linkListVisitor_Click);
             // 
             // label2
             // 
@@ -164,17 +173,19 @@ namespace VisitorReg.View
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(91, 569);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "Profile";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(48, 430);
             this.pictureBox1.Name = "pictureBox1";
@@ -186,11 +197,10 @@ namespace VisitorReg.View
             // lblDashboard
             // 
             this.lblDashboard.AutoSize = true;
-            this.lblDashboard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDashboard.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDashboard.Location = new System.Drawing.Point(56, 182);
             this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(122, 19);
+            this.lblDashboard.Size = new System.Drawing.Size(120, 17);
             this.lblDashboard.TabIndex = 3;
             this.lblDashboard.Text = "Registration Form";
             // 
@@ -214,16 +224,16 @@ namespace VisitorReg.View
             this.lblMainNavi.TabIndex = 3;
             this.lblMainNavi.Text = "MAIN NAVIGATION";
             // 
-            // menuDashboard
+            // linkRegisterVisitor
             // 
-            this.menuDashboard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.menuDashboard.Image = ((System.Drawing.Image)(resources.GetObject("menuDashboard.Image")));
-            this.menuDashboard.Location = new System.Drawing.Point(48, 55);
-            this.menuDashboard.Name = "menuDashboard";
-            this.menuDashboard.Size = new System.Drawing.Size(135, 124);
-            this.menuDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.menuDashboard.TabIndex = 4;
-            this.menuDashboard.TabStop = false;
+            this.linkRegisterVisitor.Image = ((System.Drawing.Image)(resources.GetObject("linkRegisterVisitor.Image")));
+            this.linkRegisterVisitor.Location = new System.Drawing.Point(48, 55);
+            this.linkRegisterVisitor.Name = "linkRegisterVisitor";
+            this.linkRegisterVisitor.Size = new System.Drawing.Size(135, 124);
+            this.linkRegisterVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkRegisterVisitor.TabIndex = 4;
+            this.linkRegisterVisitor.TabStop = false;
+            this.linkRegisterVisitor.Click += new System.EventHandler(this.linkDashboard_Click);
             // 
             // panel3
             // 
@@ -235,7 +245,7 @@ namespace VisitorReg.View
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(240, 926);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1320, 46);
+            this.panel3.Size = new System.Drawing.Size(1450, 46);
             this.panel3.TabIndex = 3;
             // 
             // label6
@@ -280,47 +290,130 @@ namespace VisitorReg.View
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.lblNameRequired);
+            this.groupBox1.Controls.Add(this.txtRole);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtUsername);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.btnReset);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.txtContactNo);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.txtVisitorIC);
+            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtVisitorName);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(246, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1204, 253);
+            this.groupBox1.Size = new System.Drawing.Size(1400, 253);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profile";
             // 
+            // lblNameRequired
+            // 
+            this.lblNameRequired.AutoSize = true;
+            this.lblNameRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblNameRequired.Location = new System.Drawing.Point(576, 56);
+            this.lblNameRequired.Name = "lblNameRequired";
+            this.lblNameRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblNameRequired.TabIndex = 70;
+            this.lblNameRequired.Text = "* Required";
+            this.lblNameRequired.Visible = false;
+            // 
+            // txtRole
+            // 
+            this.txtRole.Location = new System.Drawing.Point(176, 159);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.ReadOnly = true;
+            this.txtRole.Size = new System.Drawing.Size(392, 34);
+            this.txtRole.TabIndex = 5;
+            this.txtRole.Text = "";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(16, 166);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 20);
+            this.label10.TabIndex = 69;
+            this.label10.Text = "Role";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(876, 49);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(392, 34);
+            this.txtUsername.TabIndex = 2;
+            this.txtUsername.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(738, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 20);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Username";
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Silver;
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnReset.Location = new System.Drawing.Point(1150, 187);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(118, 45);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnUpdate.Location = new System.Drawing.Point(1026, 187);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(118, 45);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // txtContactNo
             // 
-            this.txtContactNo.Location = new System.Drawing.Point(798, 42);
+            this.txtContactNo.Location = new System.Drawing.Point(876, 102);
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(392, 34);
-            this.txtContactNo.TabIndex = 26;
+            this.txtContactNo.TabIndex = 4;
             this.txtContactNo.Text = "";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(661, 49);
+            this.label19.Location = new System.Drawing.Point(739, 109);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(97, 20);
             this.label19.TabIndex = 25;
             this.label19.Text = "Contact No.";
             // 
-            // txtVisitorIC
+            // txtEmail
             // 
-            this.txtVisitorIC.Location = new System.Drawing.Point(176, 103);
-            this.txtVisitorIC.Name = "txtVisitorIC";
-            this.txtVisitorIC.Size = new System.Drawing.Size(392, 34);
-            this.txtVisitorIC.TabIndex = 3;
-            this.txtVisitorIC.Text = "";
+            this.txtEmail.Location = new System.Drawing.Point(176, 103);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(392, 34);
+            this.txtEmail.TabIndex = 3;
+            this.txtEmail.Text = "";
             // 
             // label8
             // 
@@ -332,13 +425,13 @@ namespace VisitorReg.View
             this.label8.TabIndex = 2;
             this.label8.Text = "Email";
             // 
-            // txtVisitorName
+            // txtName
             // 
-            this.txtVisitorName.Location = new System.Drawing.Point(176, 49);
-            this.txtVisitorName.Name = "txtVisitorName";
-            this.txtVisitorName.Size = new System.Drawing.Size(392, 34);
-            this.txtVisitorName.TabIndex = 1;
-            this.txtVisitorName.Text = "";
+            this.txtName.Location = new System.Drawing.Point(176, 49);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(392, 34);
+            this.txtName.TabIndex = 1;
+            this.txtName.Text = "";
             // 
             // label7
             // 
@@ -350,111 +443,124 @@ namespace VisitorReg.View
             this.label7.TabIndex = 0;
             this.label7.Text = "Name";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button1.Location = new System.Drawing.Point(1072, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 45);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Reset";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Location = new System.Drawing.Point(948, 187);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 45);
-            this.button2.TabIndex = 65;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtPassNo);
+            this.groupBox2.Controls.Add(this.lblWrongPassword);
+            this.groupBox2.Controls.Add(this.lblNotMatch);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.txtConfirmPass);
+            this.groupBox2.Controls.Add(this.txtNewPass);
+            this.groupBox2.Controls.Add(this.txtOldPass);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtHouseNo);
             this.groupBox2.Controls.Add(this.label33);
-            this.groupBox2.Controls.Add(this.btnSubmit);
-            this.groupBox2.Controls.Add(this.txtNoPlate);
+            this.groupBox2.Controls.Add(this.btnChangePassword);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(249, 332);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1201, 395);
+            this.groupBox2.Size = new System.Drawing.Size(1397, 395);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Change Password";
             // 
-            // txtPassNo
+            // lblWrongPassword
             // 
-            this.txtPassNo.Location = new System.Drawing.Point(173, 94);
-            this.txtPassNo.Name = "txtPassNo";
-            this.txtPassNo.Size = new System.Drawing.Size(392, 34);
-            this.txtPassNo.TabIndex = 72;
-            this.txtPassNo.Text = "";
+            this.lblWrongPassword.AutoSize = true;
+            this.lblWrongPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWrongPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblWrongPassword.Location = new System.Drawing.Point(580, 49);
+            this.lblWrongPassword.Name = "lblWrongPassword";
+            this.lblWrongPassword.Size = new System.Drawing.Size(154, 20);
+            this.lblWrongPassword.TabIndex = 76;
+            this.lblWrongPassword.Text = "Incorrect Password";
+            this.lblWrongPassword.Visible = false;
+            // 
+            // lblNotMatch
+            // 
+            this.lblNotMatch.AutoSize = true;
+            this.lblNotMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotMatch.ForeColor = System.Drawing.Color.Red;
+            this.lblNotMatch.Location = new System.Drawing.Point(581, 158);
+            this.lblNotMatch.Name = "lblNotMatch";
+            this.lblNotMatch.Size = new System.Drawing.Size(210, 20);
+            this.lblNotMatch.TabIndex = 75;
+            this.lblNotMatch.Text = "Password Does Not Match";
+            this.lblNotMatch.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(569, 103);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 20);
+            this.label12.TabIndex = 68;
+            this.label12.Text = "* Required";
+            this.label12.Visible = false;
+            // 
+            // txtConfirmPass
+            // 
+            this.txtConfirmPass.Location = new System.Drawing.Point(173, 151);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.Size = new System.Drawing.Size(392, 30);
+            this.txtConfirmPass.TabIndex = 74;
+            this.txtConfirmPass.UseSystemPasswordChar = true;
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Location = new System.Drawing.Point(173, 99);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Size = new System.Drawing.Size(392, 30);
+            this.txtNewPass.TabIndex = 73;
+            this.txtNewPass.UseSystemPasswordChar = true;
+            // 
+            // txtOldPass
+            // 
+            this.txtOldPass.Location = new System.Drawing.Point(173, 43);
+            this.txtOldPass.Name = "txtOldPass";
+            this.txtOldPass.Size = new System.Drawing.Size(392, 30);
+            this.txtOldPass.TabIndex = 72;
+            this.txtOldPass.UseSystemPasswordChar = true;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(16, 103);
+            this.label11.Location = new System.Drawing.Point(13, 103);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(121, 20);
             this.label11.TabIndex = 71;
             this.label11.Text = "New Password";
             // 
-            // txtHouseNo
-            // 
-            this.txtHouseNo.Location = new System.Drawing.Point(173, 148);
-            this.txtHouseNo.Name = "txtHouseNo";
-            this.txtHouseNo.Size = new System.Drawing.Size(392, 34);
-            this.txtHouseNo.TabIndex = 69;
-            this.txtHouseNo.Text = "";
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(13, 155);
+            this.label33.Location = new System.Drawing.Point(11, 151);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(147, 20);
             this.label33.TabIndex = 68;
             this.label33.Text = "Confirm Password";
             // 
-            // btnSubmit
+            // btnChangePassword
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSubmit.Location = new System.Drawing.Point(396, 203);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(169, 45);
-            this.btnSubmit.TabIndex = 67;
-            this.btnSubmit.Text = "Change Password";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            // 
-            // txtNoPlate
-            // 
-            this.txtNoPlate.Location = new System.Drawing.Point(173, 40);
-            this.txtNoPlate.Name = "txtNoPlate";
-            this.txtNoPlate.Size = new System.Drawing.Size(392, 34);
-            this.txtNoPlate.TabIndex = 66;
-            this.txtNoPlate.Text = "";
+            this.btnChangePassword.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnChangePassword.Location = new System.Drawing.Point(350, 203);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(215, 45);
+            this.btnChangePassword.TabIndex = 11;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = false;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(16, 49);
+            this.label21.Location = new System.Drawing.Point(13, 49);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(114, 20);
             this.label21.TabIndex = 65;
@@ -465,7 +571,8 @@ namespace VisitorReg.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1560, 972);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.ClientSize = new System.Drawing.Size(1690, 972);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
@@ -479,16 +586,17 @@ namespace VisitorReg.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserProfile";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.UserProfile_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkRegisterVisitor)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -505,7 +613,7 @@ namespace VisitorReg.View
         private System.Windows.Forms.Label lblVisitor;
         private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox linkListVisitor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnLogout;
         private System.Windows.Forms.Label label1;
@@ -513,7 +621,7 @@ namespace VisitorReg.View
         private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblMainNavi;
-        private System.Windows.Forms.PictureBox menuDashboard;
+        private System.Windows.Forms.PictureBox linkRegisterVisitor;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
@@ -522,19 +630,27 @@ namespace VisitorReg.View
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox txtContactNo;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.RichTextBox txtVisitorIC;
+        private System.Windows.Forms.RichTextBox txtEmail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RichTextBox txtVisitorName;
+        private System.Windows.Forms.RichTextBox txtName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox txtPassNo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox txtHouseNo;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.RichTextBox txtNoPlate;
+        private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.RichTextBox txtUsername;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox txtRole;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtOldPass;
+        private System.Windows.Forms.TextBox txtConfirmPass;
+        private System.Windows.Forms.TextBox txtNewPass;
+        private System.Windows.Forms.Label lblNameRequired;
+        private System.Windows.Forms.Label lblNotMatch;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblWrongPassword;
     }
 }

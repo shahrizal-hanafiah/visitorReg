@@ -12,5 +12,7 @@ namespace VisitorReg.Lib.WinForm
         public static string Username;
         public static string Name;
         public static string Role;
+        public static string ContactNo;
+        public static string Email;
     }
 }
