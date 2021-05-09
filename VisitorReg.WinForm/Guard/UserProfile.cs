@@ -81,5 +81,51 @@ namespace VisitorReg.View.Guard
 
             MessageBox.Show(result.Message, result.MessageType.ToString());
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            if (validatePassword())
+            {
+                var result = _userService.UpdatePassword(txtNewPass.Text);
+                MessageBox.Show(result.Message, result.MessageType.ToString());
+                txtNewPass.Text = "";
+                txtConfirmPass.Text = "";
+                txtOldPass.Text = "";
+            }
+        }
+
+        private bool validatePassword()
+        {
+            if (_userService.CurrentPassword(txtOldPass.Text))
+            {
+                lblWrongPassword.Hide();
+            }
+            else
+            {
+                lblWrongPassword.Show();
+                return false;
+            }
+
+            if(txtNewPass.Text.Length == 0)
+            {
+                lblNewPassRequired.Show();
+                return false;
+            }
+            else
+            {
+                lblNewPassRequired.Hide();
+            }
+
+            if (txtNewPass.Text != txtConfirmPass.Text)
+            {
+                lblPassNotMatch.Show();
+                return false;
+            }
+            else
+            {
+                lblPassNotMatch.Hide();
+            }
+            return true;
+        }
     }
 }

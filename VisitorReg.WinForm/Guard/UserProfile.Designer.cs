@@ -64,8 +64,8 @@ namespace VisitorReg.View.Guard
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblWrongPassword = new System.Windows.Forms.Label();
-            this.lblNotMatch = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblPassNotMatch = new System.Windows.Forms.Label();
+            this.lblNewPassRequired = new System.Windows.Forms.Label();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.txtNewPass = new System.Windows.Forms.TextBox();
             this.txtOldPass = new System.Windows.Forms.TextBox();
@@ -446,8 +446,8 @@ namespace VisitorReg.View.Guard
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblWrongPassword);
-            this.groupBox2.Controls.Add(this.lblNotMatch);
-            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.lblPassNotMatch);
+            this.groupBox2.Controls.Add(this.lblNewPassRequired);
             this.groupBox2.Controls.Add(this.txtConfirmPass);
             this.groupBox2.Controls.Add(this.txtNewPass);
             this.groupBox2.Controls.Add(this.txtOldPass);
@@ -475,29 +475,29 @@ namespace VisitorReg.View.Guard
             this.lblWrongPassword.Text = "Incorrect Password";
             this.lblWrongPassword.Visible = false;
             // 
-            // lblNotMatch
+            // lblPassNotMatch
             // 
-            this.lblNotMatch.AutoSize = true;
-            this.lblNotMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotMatch.ForeColor = System.Drawing.Color.Red;
-            this.lblNotMatch.Location = new System.Drawing.Point(581, 158);
-            this.lblNotMatch.Name = "lblNotMatch";
-            this.lblNotMatch.Size = new System.Drawing.Size(210, 20);
-            this.lblNotMatch.TabIndex = 75;
-            this.lblNotMatch.Text = "Password Does Not Match";
-            this.lblNotMatch.Visible = false;
+            this.lblPassNotMatch.AutoSize = true;
+            this.lblPassNotMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassNotMatch.ForeColor = System.Drawing.Color.Red;
+            this.lblPassNotMatch.Location = new System.Drawing.Point(581, 158);
+            this.lblPassNotMatch.Name = "lblPassNotMatch";
+            this.lblPassNotMatch.Size = new System.Drawing.Size(210, 20);
+            this.lblPassNotMatch.TabIndex = 75;
+            this.lblPassNotMatch.Text = "Password Does Not Match";
+            this.lblPassNotMatch.Visible = false;
             // 
-            // label12
+            // lblNewPassRequired
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(569, 103);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 20);
-            this.label12.TabIndex = 68;
-            this.label12.Text = "* Required";
-            this.label12.Visible = false;
+            this.lblNewPassRequired.AutoSize = true;
+            this.lblNewPassRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPassRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblNewPassRequired.Location = new System.Drawing.Point(569, 103);
+            this.lblNewPassRequired.Name = "lblNewPassRequired";
+            this.lblNewPassRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblNewPassRequired.TabIndex = 68;
+            this.lblNewPassRequired.Text = "* Required";
+            this.lblNewPassRequired.Visible = false;
             // 
             // txtConfirmPass
             // 
@@ -555,6 +555,7 @@ namespace VisitorReg.View.Guard
             this.btnChangePassword.TabIndex = 11;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // label21
             // 
@@ -649,8 +650,8 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.TextBox txtConfirmPass;
         private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label lblNameRequired;
-        private System.Windows.Forms.Label lblNotMatch;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblPassNotMatch;
+        private System.Windows.Forms.Label lblNewPassRequired;
         private System.Windows.Forms.Label lblWrongPassword;
     }
 }

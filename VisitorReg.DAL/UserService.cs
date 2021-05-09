@@ -115,6 +115,85 @@ namespace VisitorReg.DAL
             }
             return result;
         }
+        public ResponseMessageModel UpdatePassword(string password)
+        {
+            ResponseMessageModel result = new ResponseMessageModel();
+            SqlConnection cnn;
+            using (cnn = new SqlConnection(_connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    using (SqlCommand cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = "UPDATE UserInfo SET Password = @password WHERE Id=@id";
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = UserInfo.UserID;
+                        cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
+
+                        int i = cmd.ExecuteNonQuery();
+
+                        if (i != 0)
+                        {
+                            result.MessageType = MessageType.Success;
+                            result.Message = "Password has been changed successfully!";
+                        }
+
+                        log.Debug($"Successfully update user password");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                    result.MessageType = MessageType.Error;
+                    result.Message = "Error occured!";
+                    var error = new Error()
+                    {
+                        Message = ex.Message,
+                        Details = $"Stack Trace:{ex.StackTrace}"
+                    };
+                    result.Error = error;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+            return result;
+        }
+        public bool CurrentPassword(string password)
+        {
+            string sql;
+            SqlConnection cnn;
+            bool result = false;
+
+            sql = "Select Id from UserInfo Where Username = @Username and Password = @Password";
+            using (cnn = new SqlConnection(_connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnn);
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = UserInfo.Username;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        result = true;
+                    }
+                    log.Debug($"Password match");
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return result;
+            }
+        }
         public void Logout()
         {
             UserInfo.Name = "";
