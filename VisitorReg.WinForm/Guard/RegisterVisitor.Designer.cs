@@ -99,6 +99,7 @@ namespace VisitorReg.View.Guard
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnReadMyKad = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
@@ -413,7 +414,7 @@ namespace VisitorReg.View.Guard
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSubmit.Location = new System.Drawing.Point(950, 815);
+            this.btnSubmit.Location = new System.Drawing.Point(946, 815);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(118, 45);
             this.btnSubmit.TabIndex = 16;
@@ -799,6 +800,7 @@ namespace VisitorReg.View.Guard
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReadMyKad);
             this.groupBox1.Controls.Add(this.lblTimeOutRequired);
             this.groupBox1.Controls.Add(this.lblDatetimeOutRequired);
             this.groupBox1.Controls.Add(this.txtDateOut);
@@ -1011,6 +1013,20 @@ namespace VisitorReg.View.Guard
             this.label10.TabIndex = 62;
             this.label10.Text = "Visit Details";
             // 
+            // btnReadMyKad
+            // 
+            this.btnReadMyKad.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnReadMyKad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadMyKad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadMyKad.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnReadMyKad.Location = new System.Drawing.Point(778, 815);
+            this.btnReadMyKad.Name = "btnReadMyKad";
+            this.btnReadMyKad.Size = new System.Drawing.Size(157, 45);
+            this.btnReadMyKad.TabIndex = 78;
+            this.btnReadMyKad.Text = "Read MyKad";
+            this.btnReadMyKad.UseVisualStyleBackColor = false;
+            this.btnReadMyKad.Click += new System.EventHandler(this.btnReadMyKad_Click);
+            // 
             // RegisterVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1115,5 +1131,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.MaskedTextBox txtDateOut;
         private System.Windows.Forms.Label lblTimeOutRequired;
         private System.Windows.Forms.Label lblDatetimeOutRequired;
+        private System.Windows.Forms.Button btnReadMyKad;
     }
 }

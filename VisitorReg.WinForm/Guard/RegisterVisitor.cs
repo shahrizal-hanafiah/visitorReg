@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -335,6 +337,47 @@ namespace VisitorReg.View.Guard
             var profile = new UserProfile();
             profile.Show();
             this.Hide();
+        }
+
+        private void btnReadMyKad_Click(object sender, EventArgs e)
+        {
+            ReadMyKad();
+        }
+
+        private void ReadMyKad()
+        {
+            Process proc = null;
+            try
+            {
+                string batDir = string.Format(Settings.ReaderSettings);
+                proc = new Process();
+                proc.StartInfo.WorkingDirectory = batDir;
+                proc.StartInfo.FileName = "automatic_reader.bat";
+                proc.StartInfo.CreateNoWindow = false;
+                proc.Start();
+                proc.WaitForExit();
+                readOutput();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace.ToString());
+            }
+        }
+        private void readOutput()
+        {
+            var textFile = Settings.ReaderSettings + "\\output.txt";
+            if (File.Exists(textFile))
+            {
+                string[] lines = File.ReadAllLines(textFile);
+                foreach (string line in lines)
+                {
+                    var test = line.Substring(0, 5);
+                    if (line.Length > 5 && line.Substring(0, 5) == "Name:")
+                    {
+                        txtVisitorName.Text = line.Substring(6, line.Length-6).Trim();
+                    }
+                }
+            }
         }
     }
 }
