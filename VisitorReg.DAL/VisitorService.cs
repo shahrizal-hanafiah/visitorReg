@@ -16,6 +16,11 @@ namespace VisitorReg.DAL
     public class VisitorService
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(UserService));
+        private string _connectionString;
+        public VisitorService()
+        {
+            _connectionString = Settings.ConnectionString;
+        }
         public ResponseMessageModel Insert(VisitorModel visitor)
         {
             ResponseMessageModel result = new ResponseMessageModel()
@@ -73,6 +78,62 @@ namespace VisitorReg.DAL
                     cnn.Close();
                 }
             }
+            return result;
+        }
+        public List<DashboardModel> GetDashboardStats()
+        {
+            string sql;
+            SqlConnection cnn;
+            List<DashboardModel> result = new List<DashboardModel>();
+
+            sql = " SELECT [IntMonth],[MonthPurpose],[YearPurpose],[Visitor] , [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others] " +
+                  " FROM " +
+                  " (Select * from( " +
+                  " SELECT Id, PurposeVisit,Month(DateTimeIn) as IntMonth, DATENAME(month, DateTimeIn) MonthPurpose, Year(DateTimeIn) YearPurpose from VisitorInfo " +
+                  " Where Year(DateTimeIn) = Year(GETDATE()) " +
+                  " ) as a group by a.IntMonth,a.MonthPurpose, a.PurposeVisit, a.YearPurpose, a.Id) p " +
+                  " PIVOT " +
+                  " ( " +
+                  " COUNT(Id) " +
+                  " FOR PurposeVisit IN " +
+                  " ( [Visitor], [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others]) " +
+                  " ) AS pvt  ";
+            using (cnn = new SqlConnection(_connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            var item = new DashboardModel() {
+                                intMonth = reader.GetInt32(0),
+                                Month = reader.GetString(1),
+                                Year = reader.GetInt32(2),
+                                Visitors = reader.GetInt32(3),
+                                Contractors = reader.GetInt32(4) + reader.GetInt32(5),
+                                Couriers = reader.GetInt32(6),
+                                FoodDeliveries = reader.GetInt32(7) 
+                            };
+                            result.Add(item);
+                        }                        
+                        reader.NextResult();
+                    }
+                    log.Debug($"Login success");
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+
             return result;
         }
     }
