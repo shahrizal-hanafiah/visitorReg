@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisitorReg.DAL;
 using VisitorReg.Lib.WinForm;
@@ -25,27 +18,6 @@ namespace VisitorReg.View.Guard
         {
             InitializeComponent();
             OnLoad();
-        }
-
-        private void OnLoad()
-        {
-            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
-
-            txtDateOut.Mask = "00/00/0000";
-            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
-            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
-            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
-            txtOthers.Enabled = false;
-            lblNameRequired.Show();
-            lblICNoRequired.Show();
-            lblNoPlateRequired.Show();
-            lblPassNoRequired.Show();
-            lblHouseNoRequired.Show();
-            lblPurposeVisitRequired.Show();
-            lblOtherRequired.Hide();
-            lblTimeInRequired.Hide();
-            lblTimeOutRequired.Hide();
-            lblDatetimeOutRequired.Hide();
         }
 
         private void cmbPurpose_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,58 +84,6 @@ namespace VisitorReg.View.Guard
             {
                 MessageBox.Show("Please fill in all required field(s)");
             }
-        }
-
-        private bool Validation()
-        {
-            if (txtVisitorName.Text.Length == 0)
-            {
-                lblNameRequired.Show();
-                txtVisitorName.Focus();
-                return false;
-            } else if (txtVisitorIC.Text.Length == 0)
-            {
-                lblICNoRequired.Show();
-                txtVisitorIC.Focus();
-                return false;
-            } else if (txtNoPlate.Text.Length == 0)
-            {
-                lblNoPlateRequired.Show();
-                txtNoPlate.Focus();
-                return false;
-            } else if (txtPassNo.Text.Length == 0)
-            {
-                lblPassNoRequired.Show();
-                txtPassNo.Focus();
-                return false;
-            } else if (cmbPurpose.SelectedIndex < 0) 
-            {
-                lblPurposeVisitRequired.Show();
-                cmbPurpose.Focus();
-                return false;
-            } else if (cmbPurpose.SelectedIndex > 0 && cmbPurpose.SelectedItem.ToString() == "Others" && txtOthers.Text.Length == 0 )
-            {
-                lblOtherRequired.Show();
-                txtOthers.Focus();
-                return false;
-            } else if (txtHouseNo.Text.Length == 0) 
-            {
-                lblHouseNoRequired.Show();
-                txtHouseNo.Focus();
-                return false;
-            } else if(txtDateOut.Text.Length > 0 && (cmbHourOut.SelectedIndex < 0 || cmbMinutesOut.SelectedIndex < 0 || cmbPeriodOut.SelectedIndex < 0))
-            {
-                lblTimeOutRequired.Show();
-                cmbHourOut.Focus();
-                return false;
-            } else if(txtDateOut.Text.Length == 0 && (cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0))
-            {
-                lblDatetimeOutRequired.Show();
-                txtDateOut.Focus();
-                return false;
-            }
-
-            return true;
         }
 
         private void txtVisitorName_TextChanged(object sender, EventArgs e)
@@ -296,27 +216,6 @@ namespace VisitorReg.View.Guard
         {
         }
 
-        private void Reset()
-        {
-            txtVisitorName.Text = "";
-            txtVisitorIC.Text = "";
-            txtContactNo.Text = "";
-            txtVisitorICOld.Text = "";
-            txtNoPlate.Text = "";
-            txtPassNo.Text = "";
-            txtHouseNo.Text = "";
-            cmbPurpose.SelectedIndex = -1;
-            txtOthers.Text = "";
-            txtOthers.ReadOnly = true;
-            txtOthers.Enabled = false;
-            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
-            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
-            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
-            lblTimeOutRequired.Hide();
-            lblDatetimeOutRequired.Hide();
-        }
-
         private void linkLogout_Click(object sender, EventArgs e)
         {
             userService.Logout();
@@ -344,6 +243,110 @@ namespace VisitorReg.View.Guard
             ReadMyKad();
         }
 
+        #region Logic
+        private void OnLoad()
+        {
+            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            txtDateOut.Mask = "00/00/0000";
+            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
+            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
+            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
+            txtOthers.Enabled = false;
+            lblNameRequired.Show();
+            lblICNoRequired.Show();
+            lblNoPlateRequired.Show();
+            lblPassNoRequired.Show();
+            lblHouseNoRequired.Show();
+            lblPurposeVisitRequired.Show();
+            lblOtherRequired.Hide();
+            lblTimeInRequired.Hide();
+            lblTimeOutRequired.Hide();
+            lblDatetimeOutRequired.Hide();
+            picVisitor.ImageLocation = "Images/anonymity.png";
+        }
+
+        private bool Validation()
+        {
+            if (txtVisitorName.Text.Length == 0)
+            {
+                lblNameRequired.Show();
+                txtVisitorName.Focus();
+                return false;
+            }
+            else if (txtVisitorIC.Text.Length == 0)
+            {
+                lblICNoRequired.Show();
+                txtVisitorIC.Focus();
+                return false;
+            }
+            else if (txtNoPlate.Text.Length == 0)
+            {
+                lblNoPlateRequired.Show();
+                txtNoPlate.Focus();
+                return false;
+            }
+            else if (txtPassNo.Text.Length == 0)
+            {
+                lblPassNoRequired.Show();
+                txtPassNo.Focus();
+                return false;
+            }
+            else if (cmbPurpose.SelectedIndex < 0)
+            {
+                lblPurposeVisitRequired.Show();
+                cmbPurpose.Focus();
+                return false;
+            }
+            else if (cmbPurpose.SelectedIndex > 0 && cmbPurpose.SelectedItem.ToString() == "Others" && txtOthers.Text.Length == 0)
+            {
+                lblOtherRequired.Show();
+                txtOthers.Focus();
+                return false;
+            }
+            else if (txtHouseNo.Text.Length == 0)
+            {
+                lblHouseNoRequired.Show();
+                txtHouseNo.Focus();
+                return false;
+            }
+            else if (txtDateOut.Text.Length > 0 && (cmbHourOut.SelectedIndex < 0 || cmbMinutesOut.SelectedIndex < 0 || cmbPeriodOut.SelectedIndex < 0))
+            {
+                lblTimeOutRequired.Show();
+                cmbHourOut.Focus();
+                return false;
+            }
+            else if (txtDateOut.Text.Length == 0 && (cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0))
+            {
+                lblDatetimeOutRequired.Show();
+                txtDateOut.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void Reset()
+        {
+            txtVisitorName.Text = "";
+            txtVisitorIC.Text = "";
+            txtContactNo.Text = "";
+            txtVisitorICOld.Text = "";
+            txtNoPlate.Text = "";
+            txtPassNo.Text = "";
+            txtHouseNo.Text = "";
+            cmbPurpose.SelectedIndex = -1;
+            txtOthers.Text = "";
+            txtOthers.ReadOnly = true;
+            txtOthers.Enabled = false;
+            txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
+            cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
+            cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
+            lblTimeOutRequired.Hide();
+            lblDatetimeOutRequired.Hide();
+        }
+
         private void ReadMyKad()
         {
             Process proc = null;
@@ -363,21 +366,60 @@ namespace VisitorReg.View.Guard
                 Console.WriteLine(ex.StackTrace.ToString());
             }
         }
+
         private void readOutput()
         {
             var textFile = Settings.ReaderSettings + "\\output.txt";
             if (File.Exists(textFile))
             {
+                var startReadAddress = false;
                 string[] lines = File.ReadAllLines(textFile);
                 foreach (string line in lines)
                 {
-                    var test = line.Substring(0, 5);
                     if (line.Length > 5 && line.Substring(0, 5) == "Name:")
                     {
                         txtVisitorName.Text = line.Substring(6, line.Length-6).Trim();
                     }
+                    if (line.Length > 3 && line.Substring(0, 3) == "IC:")
+                    {
+                        var ICNo = line.Substring(3, line.Length - 3).Trim();
+                        if (ICNo.Length > 0)
+                            txtVisitorIC.Text = ICNo;
+                    }
+                    if (line.Length > 7 && line.Substring(0, 7) == "Old IC:")
+                    {
+                        var oldIc = line.Substring(7, line.Length - 7).Trim();
+                        if (oldIc.Length>0)
+                            txtVisitorICOld.Text = oldIc;
+                    }
+                    if (line.Length > 4 && line.Substring(0, 4) == "Sex:")
+                    {
+                        cmbGender.SelectedItem = line.Substring(4, line.Length - 4).Trim();
+                    }
+                    if (line.Length > 12 && line.Substring(0, 12) == "Ethnic/Race:")
+                    {
+                        txtRace.Text = line.Substring(12, line.Length - 12).Trim();
+                    }
+                    if (line.Length > 0 && startReadAddress)
+                    {
+                        if(line.Length>17 &&(line.Substring(0,18) == "Reading JPN file 5" || line.Substring(0, 18) == "Reading JPN file 6"))
+                        {
+                            startReadAddress = false;
+                        }
+                        else
+                        {
+                            txtAddress.Text = txtAddress.Text.Length > 0 ? txtAddress.Text + Environment.NewLine + line.Substring(0, line.Length): line.Substring(0, line.Length);
+                        }
+                    }
+                    if (line.Length > 7 && line.Substring(0, 8) == "Address:")
+                    {
+                        startReadAddress = true;
+                        txtAddress.Text = "";
+                    }
                 }
+                picVisitor.ImageLocation = Settings.ReaderSettings + "\\photo.jpg";
             }
         }
+        #endregion
     }
 }

@@ -84,6 +84,7 @@ namespace VisitorReg.View.Guard
             this.label29 = new System.Windows.Forms.Label();
             this.txtOthers = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReadMyKad = new System.Windows.Forms.Button();
             this.lblTimeOutRequired = new System.Windows.Forms.Label();
             this.lblDatetimeOutRequired = new System.Windows.Forms.Label();
             this.txtDateOut = new System.Windows.Forms.MaskedTextBox();
@@ -99,7 +100,14 @@ namespace VisitorReg.View.Guard
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnReadMyKad = new System.Windows.Forms.Button();
+            this.picVisitor = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.txtRace = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
@@ -109,6 +117,7 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -356,7 +365,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(697, 134);
+            this.label9.Location = new System.Drawing.Point(700, 134);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 20);
             this.label9.TabIndex = 4;
@@ -392,7 +401,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(24, 232);
+            this.label21.Location = new System.Drawing.Point(25, 451);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(77, 20);
             this.label21.TabIndex = 29;
@@ -400,7 +409,7 @@ namespace VisitorReg.View.Guard
             // 
             // txtNoPlate
             // 
-            this.txtNoPlate.Location = new System.Drawing.Point(180, 223);
+            this.txtNoPlate.Location = new System.Drawing.Point(181, 442);
             this.txtNoPlate.MaxLength = 10;
             this.txtNoPlate.Name = "txtNoPlate";
             this.txtNoPlate.Size = new System.Drawing.Size(104, 34);
@@ -450,7 +459,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(20, 360);
+            this.label24.Location = new System.Drawing.Point(21, 579);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(90, 20);
             this.label24.TabIndex = 36;
@@ -460,7 +469,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(21, 396);
+            this.label25.Location = new System.Drawing.Point(22, 615);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(63, 20);
             this.label25.TabIndex = 37;
@@ -470,7 +479,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(697, 360);
+            this.label27.Location = new System.Drawing.Point(698, 579);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(105, 20);
             this.label27.TabIndex = 40;
@@ -480,7 +489,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(700, 405);
+            this.label26.Location = new System.Drawing.Point(701, 624);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(77, 20);
             this.label26.TabIndex = 41;
@@ -490,7 +499,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(20, 451);
+            this.label28.Location = new System.Drawing.Point(21, 670);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(64, 20);
             this.label28.TabIndex = 43;
@@ -513,7 +522,7 @@ namespace VisitorReg.View.Guard
             "10",
             "11",
             "12"});
-            this.cmbHourIn.Location = new System.Drawing.Point(180, 441);
+            this.cmbHourIn.Location = new System.Drawing.Point(181, 660);
             this.cmbHourIn.Name = "cmbHourIn";
             this.cmbHourIn.Size = new System.Drawing.Size(60, 33);
             this.cmbHourIn.TabIndex = 10;
@@ -583,7 +592,7 @@ namespace VisitorReg.View.Guard
             "57",
             "58",
             "59"});
-            this.cmbMinutesIn.Location = new System.Drawing.Point(267, 441);
+            this.cmbMinutesIn.Location = new System.Drawing.Point(268, 660);
             this.cmbMinutesIn.Name = "cmbMinutesIn";
             this.cmbMinutesIn.Size = new System.Drawing.Size(60, 33);
             this.cmbMinutesIn.TabIndex = 11;
@@ -592,7 +601,7 @@ namespace VisitorReg.View.Guard
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(244, 444);
+            this.label30.Location = new System.Drawing.Point(245, 663);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(18, 25);
             this.label30.TabIndex = 47;
@@ -604,7 +613,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodIn.Items.AddRange(new object[] {
             "AM",
             "PM"});
-            this.cmbPeriodIn.Location = new System.Drawing.Point(348, 441);
+            this.cmbPeriodIn.Location = new System.Drawing.Point(349, 660);
             this.cmbPeriodIn.Name = "cmbPeriodIn";
             this.cmbPeriodIn.Size = new System.Drawing.Size(60, 33);
             this.cmbPeriodIn.TabIndex = 12;
@@ -614,7 +623,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(700, 458);
+            this.label32.Location = new System.Drawing.Point(701, 677);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 20);
             this.label32.TabIndex = 49;
@@ -637,7 +646,7 @@ namespace VisitorReg.View.Guard
             "10",
             "11",
             "12"});
-            this.cmbHourOut.Location = new System.Drawing.Point(837, 448);
+            this.cmbHourOut.Location = new System.Drawing.Point(838, 667);
             this.cmbHourOut.Name = "cmbHourOut";
             this.cmbHourOut.Size = new System.Drawing.Size(60, 33);
             this.cmbHourOut.TabIndex = 14;
@@ -706,7 +715,7 @@ namespace VisitorReg.View.Guard
             "57",
             "58",
             "59"});
-            this.cmbMinutesOut.Location = new System.Drawing.Point(924, 448);
+            this.cmbMinutesOut.Location = new System.Drawing.Point(925, 667);
             this.cmbMinutesOut.Name = "cmbMinutesOut";
             this.cmbMinutesOut.Size = new System.Drawing.Size(60, 33);
             this.cmbMinutesOut.TabIndex = 15;
@@ -714,7 +723,7 @@ namespace VisitorReg.View.Guard
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(901, 451);
+            this.label31.Location = new System.Drawing.Point(902, 670);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(18, 25);
             this.label31.TabIndex = 52;
@@ -726,7 +735,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodOut.Items.AddRange(new object[] {
             "AM",
             "PM"});
-            this.cmbPeriodOut.Location = new System.Drawing.Point(1005, 448);
+            this.cmbPeriodOut.Location = new System.Drawing.Point(1006, 667);
             this.cmbPeriodOut.Name = "cmbPeriodOut";
             this.cmbPeriodOut.Size = new System.Drawing.Size(60, 33);
             this.cmbPeriodOut.TabIndex = 16;
@@ -735,7 +744,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(22, 279);
+            this.label33.Location = new System.Drawing.Point(23, 498);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(135, 20);
             this.label33.TabIndex = 54;
@@ -743,7 +752,7 @@ namespace VisitorReg.View.Guard
             // 
             // txtHouseNo
             // 
-            this.txtHouseNo.Location = new System.Drawing.Point(181, 272);
+            this.txtHouseNo.Location = new System.Drawing.Point(182, 491);
             this.txtHouseNo.Name = "txtHouseNo";
             this.txtHouseNo.Size = new System.Drawing.Size(392, 34);
             this.txtHouseNo.TabIndex = 7;
@@ -754,7 +763,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(698, 224);
+            this.label34.Location = new System.Drawing.Point(699, 443);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(109, 20);
             this.label34.TabIndex = 56;
@@ -771,7 +780,7 @@ namespace VisitorReg.View.Guard
             "Food Delivery",
             "Goverment Agencies",
             "Others"});
-            this.cmbPurpose.Location = new System.Drawing.Point(837, 217);
+            this.cmbPurpose.Location = new System.Drawing.Point(838, 436);
             this.cmbPurpose.Name = "cmbPurpose";
             this.cmbPurpose.Size = new System.Drawing.Size(389, 33);
             this.cmbPurpose.TabIndex = 8;
@@ -781,7 +790,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(697, 272);
+            this.label29.Location = new System.Drawing.Point(698, 491);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(118, 20);
             this.label29.TabIndex = 58;
@@ -790,7 +799,7 @@ namespace VisitorReg.View.Guard
             // txtOthers
             // 
             this.txtOthers.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtOthers.Location = new System.Drawing.Point(837, 265);
+            this.txtOthers.Location = new System.Drawing.Point(838, 484);
             this.txtOthers.Name = "txtOthers";
             this.txtOthers.ReadOnly = true;
             this.txtOthers.Size = new System.Drawing.Size(393, 78);
@@ -800,6 +809,14 @@ namespace VisitorReg.View.Guard
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAddress);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.txtRace);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.cmbGender);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.picVisitor);
             this.groupBox1.Controls.Add(this.btnReadMyKad);
             this.groupBox1.Controls.Add(this.lblTimeOutRequired);
             this.groupBox1.Controls.Add(this.lblDatetimeOutRequired);
@@ -857,12 +874,26 @@ namespace VisitorReg.View.Guard
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registration Form";
             // 
+            // btnReadMyKad
+            // 
+            this.btnReadMyKad.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnReadMyKad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadMyKad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadMyKad.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnReadMyKad.Location = new System.Drawing.Point(778, 815);
+            this.btnReadMyKad.Name = "btnReadMyKad";
+            this.btnReadMyKad.Size = new System.Drawing.Size(157, 45);
+            this.btnReadMyKad.TabIndex = 78;
+            this.btnReadMyKad.Text = "Read MyKad";
+            this.btnReadMyKad.UseVisualStyleBackColor = false;
+            this.btnReadMyKad.Click += new System.EventHandler(this.btnReadMyKad_Click);
+            // 
             // lblTimeOutRequired
             // 
             this.lblTimeOutRequired.AutoSize = true;
             this.lblTimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeOutRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblTimeOutRequired.Location = new System.Drawing.Point(1071, 454);
+            this.lblTimeOutRequired.Location = new System.Drawing.Point(1072, 673);
             this.lblTimeOutRequired.Name = "lblTimeOutRequired";
             this.lblTimeOutRequired.Size = new System.Drawing.Size(87, 20);
             this.lblTimeOutRequired.TabIndex = 77;
@@ -873,7 +904,7 @@ namespace VisitorReg.View.Guard
             this.lblDatetimeOutRequired.AutoSize = true;
             this.lblDatetimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatetimeOutRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblDatetimeOutRequired.Location = new System.Drawing.Point(1071, 405);
+            this.lblDatetimeOutRequired.Location = new System.Drawing.Point(1072, 624);
             this.lblDatetimeOutRequired.Name = "lblDatetimeOutRequired";
             this.lblDatetimeOutRequired.Size = new System.Drawing.Size(87, 20);
             this.lblDatetimeOutRequired.TabIndex = 76;
@@ -881,7 +912,7 @@ namespace VisitorReg.View.Guard
             // 
             // txtDateOut
             // 
-            this.txtDateOut.Location = new System.Drawing.Point(836, 398);
+            this.txtDateOut.Location = new System.Drawing.Point(837, 617);
             this.txtDateOut.Name = "txtDateOut";
             this.txtDateOut.Size = new System.Drawing.Size(229, 30);
             this.txtDateOut.TabIndex = 13;
@@ -891,7 +922,7 @@ namespace VisitorReg.View.Guard
             this.lblNoPlateRequired.AutoSize = true;
             this.lblNoPlateRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoPlateRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblNoPlateRequired.Location = new System.Drawing.Point(287, 229);
+            this.lblNoPlateRequired.Location = new System.Drawing.Point(288, 448);
             this.lblNoPlateRequired.Name = "lblNoPlateRequired";
             this.lblNoPlateRequired.Size = new System.Drawing.Size(87, 20);
             this.lblNoPlateRequired.TabIndex = 74;
@@ -902,7 +933,7 @@ namespace VisitorReg.View.Guard
             this.lblOtherRequired.AutoSize = true;
             this.lblOtherRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOtherRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblOtherRequired.Location = new System.Drawing.Point(1232, 265);
+            this.lblOtherRequired.Location = new System.Drawing.Point(1233, 484);
             this.lblOtherRequired.Name = "lblOtherRequired";
             this.lblOtherRequired.Size = new System.Drawing.Size(87, 20);
             this.lblOtherRequired.TabIndex = 73;
@@ -913,7 +944,7 @@ namespace VisitorReg.View.Guard
             this.lblTimeInRequired.AutoSize = true;
             this.lblTimeInRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeInRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblTimeInRequired.Location = new System.Drawing.Point(414, 448);
+            this.lblTimeInRequired.Location = new System.Drawing.Point(415, 667);
             this.lblTimeInRequired.Name = "lblTimeInRequired";
             this.lblTimeInRequired.Size = new System.Drawing.Size(87, 20);
             this.lblTimeInRequired.TabIndex = 72;
@@ -924,7 +955,7 @@ namespace VisitorReg.View.Guard
             this.lblHouseNoRequired.AutoSize = true;
             this.lblHouseNoRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHouseNoRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblHouseNoRequired.Location = new System.Drawing.Point(579, 272);
+            this.lblHouseNoRequired.Location = new System.Drawing.Point(580, 491);
             this.lblHouseNoRequired.Name = "lblHouseNoRequired";
             this.lblHouseNoRequired.Size = new System.Drawing.Size(87, 20);
             this.lblHouseNoRequired.TabIndex = 71;
@@ -935,7 +966,7 @@ namespace VisitorReg.View.Guard
             this.lblPassNoRequired.AutoSize = true;
             this.lblPassNoRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassNoRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblPassNoRequired.Location = new System.Drawing.Point(579, 229);
+            this.lblPassNoRequired.Location = new System.Drawing.Point(580, 448);
             this.lblPassNoRequired.Name = "lblPassNoRequired";
             this.lblPassNoRequired.Size = new System.Drawing.Size(87, 20);
             this.lblPassNoRequired.TabIndex = 70;
@@ -946,7 +977,7 @@ namespace VisitorReg.View.Guard
             this.lblPurposeVisitRequired.AutoSize = true;
             this.lblPurposeVisitRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPurposeVisitRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblPurposeVisitRequired.Location = new System.Drawing.Point(1232, 224);
+            this.lblPurposeVisitRequired.Location = new System.Drawing.Point(1233, 443);
             this.lblPurposeVisitRequired.Name = "lblPurposeVisitRequired";
             this.lblPurposeVisitRequired.Size = new System.Drawing.Size(87, 20);
             this.lblPurposeVisitRequired.TabIndex = 69;
@@ -976,7 +1007,7 @@ namespace VisitorReg.View.Guard
             // 
             // txtDateIn
             // 
-            this.txtDateIn.Location = new System.Drawing.Point(180, 389);
+            this.txtDateIn.Location = new System.Drawing.Point(181, 608);
             this.txtDateIn.Name = "txtDateIn";
             this.txtDateIn.ReadOnly = true;
             this.txtDateIn.Size = new System.Drawing.Size(228, 34);
@@ -985,7 +1016,7 @@ namespace VisitorReg.View.Guard
             // 
             // txtPassNo
             // 
-            this.txtPassNo.Location = new System.Drawing.Point(482, 222);
+            this.txtPassNo.Location = new System.Drawing.Point(483, 441);
             this.txtPassNo.MaxLength = 4;
             this.txtPassNo.Name = "txtPassNo";
             this.txtPassNo.Size = new System.Drawing.Size(91, 34);
@@ -997,7 +1028,7 @@ namespace VisitorReg.View.Guard
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(389, 229);
+            this.label11.Location = new System.Drawing.Point(390, 448);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 20);
             this.label11.TabIndex = 63;
@@ -1007,25 +1038,87 @@ namespace VisitorReg.View.Guard
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 187);
+            this.label10.Location = new System.Drawing.Point(23, 406);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 20);
             this.label10.TabIndex = 62;
             this.label10.Text = "Visit Details";
             // 
-            // btnReadMyKad
+            // picVisitor
             // 
-            this.btnReadMyKad.BackColor = System.Drawing.Color.DarkBlue;
-            this.btnReadMyKad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReadMyKad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadMyKad.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnReadMyKad.Location = new System.Drawing.Point(778, 815);
-            this.btnReadMyKad.Name = "btnReadMyKad";
-            this.btnReadMyKad.Size = new System.Drawing.Size(157, 45);
-            this.btnReadMyKad.TabIndex = 78;
-            this.btnReadMyKad.Text = "Read MyKad";
-            this.btnReadMyKad.UseVisualStyleBackColor = false;
-            this.btnReadMyKad.Click += new System.EventHandler(this.btnReadMyKad_Click);
+            this.picVisitor.Location = new System.Drawing.Point(838, 181);
+            this.picVisitor.Name = "picVisitor";
+            this.picVisitor.Size = new System.Drawing.Size(212, 231);
+            this.picVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picVisitor.TabIndex = 79;
+            this.picVisitor.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(701, 181);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 20);
+            this.label12.TabIndex = 80;
+            this.label12.Text = "Photo";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(21, 188);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 20);
+            this.label13.TabIndex = 82;
+            this.label13.Text = "Gender";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbGender.Location = new System.Drawing.Point(180, 181);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(392, 33);
+            this.cmbGender.TabIndex = 83;
+            // 
+            // txtRace
+            // 
+            this.txtRace.Location = new System.Drawing.Point(180, 235);
+            this.txtRace.Name = "txtRace";
+            this.txtRace.Size = new System.Drawing.Size(392, 34);
+            this.txtRace.TabIndex = 85;
+            this.txtRace.Text = "";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 242);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 20);
+            this.label15.TabIndex = 84;
+            this.label15.Text = "Race";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(180, 290);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(394, 101);
+            this.txtAddress.TabIndex = 87;
+            this.txtAddress.Text = "";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(21, 297);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 20);
+            this.label14.TabIndex = 86;
+            this.label14.Text = "Address";
             // 
             // RegisterVisitor
             // 
@@ -1058,6 +1151,7 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1132,5 +1226,13 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label lblTimeOutRequired;
         private System.Windows.Forms.Label lblDatetimeOutRequired;
         private System.Windows.Forms.Button btnReadMyKad;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox picVisitor;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.RichTextBox txtRace;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox txtAddress;
+        private System.Windows.Forms.Label label14;
     }
 }
