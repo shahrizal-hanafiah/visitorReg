@@ -50,9 +50,11 @@ namespace VisitorReg.View.Guard
 
                 int PreviousPageOffSet = page == 1? PgSize : (page - 1) * PgSize;
 
-                var sql = "select TOP " + PreviousPageOffSet + " ROW_NUMBER() OVER(ORDER BY id ASC) AS #,Name,ICNo as 'IC No.',OldICNo as 'Old Ic No.',NoPlate as 'Car No. Plate'," +
-                      "PassNo as 'Pass No.',HouseNo as 'House No.',PurposeVisit as 'Purpose of visit',DateTimeIn as 'Date & Time In',DateTimeOut as 'Date & Time Out'," +
-                      "CreateDate as 'Created Date',CreatedBy as 'Created By' from VisitorInfo where DateTimeIn between @DateFrom and @DateTo";
+                var sql = "select TOP " + PreviousPageOffSet + " ROW_NUMBER() OVER(ORDER BY b.id ASC) AS #,a.Name,a.ICNo as 'IC No.',a.OldICNo as 'Old Ic No.'," +
+                      " b.NoPlate as 'Car No. Plate',b.PassNo as 'Pass No.',b.HouseNo as 'House No.',b.PurposeVisit as 'Purpose of visit',b.DateTimeIn as 'Date & Time In'," +
+                      " b.DateTimeOut as 'Date & Time Out', b.CreatedDate as 'Created Date',b.CreatedBy as 'Created By' from VisitorInfo a " +
+                      " Inner Join Visits b on b.VisitorInfoId = a.Id " +
+                      " where b.DateTimeIn between @DateFrom and @DateTo";
 
                 command = new SqlCommand(sql, connection);
                 command.Parameters.Add("@DateFrom", SqlDbType.DateTime);

@@ -20,7 +20,7 @@ namespace VisitorReg.Lib.WinForm.Models.Visitor
         public DateTime DateTimeIn { get; set; }
         public DateTime? DateTimeOut { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
     }
 }

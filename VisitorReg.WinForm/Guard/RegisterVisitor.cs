@@ -98,7 +98,7 @@ namespace VisitorReg.View.Guard
                     DateTimeIn = Convert.ToDateTime($"{txtDateIn.Text} {cmbHourIn.SelectedItem}:{cmbMinutesIn.SelectedItem} {cmbPeriodIn.SelectedItem}", new CultureInfo("ms-MY")),
                     DateTimeOut = cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0 ? Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY")) : NullDatetime,
                     CreatedBy = UserInfo.Username,
-                    CreateDate = DateTime.Now
+                    CreatedDate = DateTime.Now
                 };
                 var result = visitorService.Insert(visitor);
                 if (result.MessageType == MessageType.Success)

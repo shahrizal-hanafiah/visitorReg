@@ -48,7 +48,7 @@ namespace VisitorReg.DAL
                     cmd.Parameters.AddWithValue("@PurposeVisit", visitor.PurposeVisit);
                     cmd.Parameters.AddWithValue("@DateTimeIn", visitor.DateTimeIn);
                     cmd.Parameters.AddWithValue("@DateTimeOut", visitor.DateTimeOut);
-                    cmd.Parameters.AddWithValue("@CreateDate", visitor.CreateDate);
+                    cmd.Parameters.AddWithValue("@CreatedDate", visitor.CreatedDate);
                     cmd.Parameters.AddWithValue("@CreatedBy", visitor.CreatedBy);
 
                     int i = cmd.ExecuteNonQuery();
