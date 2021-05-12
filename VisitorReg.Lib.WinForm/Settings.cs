@@ -12,11 +12,13 @@ namespace VisitorReg.Lib.WinForm
     {
         public static string ConnectionString;
         public static string ReaderSettings;
+        public static string PhotoSettings;
         private static readonly Settings instance = new Settings();
         static Settings()
         {
             GetConnectionString();
             GetFolderPath();
+            GetImagesPath();
         }
         private Settings()
         {
@@ -37,6 +39,10 @@ namespace VisitorReg.Lib.WinForm
         private static void GetFolderPath()
         {
             ReaderSettings = ConfigurationManager.AppSettings["MyKadReader"];
+        }
+        private static void GetImagesPath()
+        {
+            PhotoSettings = ConfigurationManager.AppSettings["MyKadPhotos"];
         }
     }
 }

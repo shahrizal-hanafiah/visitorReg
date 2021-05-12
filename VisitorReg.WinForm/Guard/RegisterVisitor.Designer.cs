@@ -81,9 +81,17 @@ namespace VisitorReg.View.Guard
             this.txtHouseNo = new System.Windows.Forms.RichTextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.cmbPurpose = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtOthers = new System.Windows.Forms.RichTextBox();
+            this.lblOthers = new System.Windows.Forms.Label();
+            this.txtRemarks = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtRace = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.picVisitor = new System.Windows.Forms.PictureBox();
             this.btnReadMyKad = new System.Windows.Forms.Button();
             this.lblTimeOutRequired = new System.Windows.Forms.Label();
             this.lblDatetimeOutRequired = new System.Windows.Forms.Label();
@@ -100,14 +108,6 @@ namespace VisitorReg.View.Guard
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.picVisitor = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.txtRace = new System.Windows.Forms.RichTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.RichTextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
@@ -413,7 +413,7 @@ namespace VisitorReg.View.Guard
             this.txtNoPlate.MaxLength = 10;
             this.txtNoPlate.Name = "txtNoPlate";
             this.txtNoPlate.Size = new System.Drawing.Size(104, 34);
-            this.txtNoPlate.TabIndex = 5;
+            this.txtNoPlate.TabIndex = 8;
             this.txtNoPlate.Text = "";
             this.txtNoPlate.TextChanged += new System.EventHandler(this.txtNoPlate_TextChanged);
             // 
@@ -525,7 +525,7 @@ namespace VisitorReg.View.Guard
             this.cmbHourIn.Location = new System.Drawing.Point(181, 660);
             this.cmbHourIn.Name = "cmbHourIn";
             this.cmbHourIn.Size = new System.Drawing.Size(60, 33);
-            this.cmbHourIn.TabIndex = 10;
+            this.cmbHourIn.TabIndex = 13;
             this.cmbHourIn.SelectedIndexChanged += new System.EventHandler(this.cmbHourIn_SelectedIndexChanged);
             // 
             // cmbMinutesIn
@@ -595,7 +595,7 @@ namespace VisitorReg.View.Guard
             this.cmbMinutesIn.Location = new System.Drawing.Point(268, 660);
             this.cmbMinutesIn.Name = "cmbMinutesIn";
             this.cmbMinutesIn.Size = new System.Drawing.Size(60, 33);
-            this.cmbMinutesIn.TabIndex = 11;
+            this.cmbMinutesIn.TabIndex = 14;
             this.cmbMinutesIn.SelectedIndexChanged += new System.EventHandler(this.cmbMinutesIn_SelectedIndexChanged);
             // 
             // label30
@@ -616,7 +616,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodIn.Location = new System.Drawing.Point(349, 660);
             this.cmbPeriodIn.Name = "cmbPeriodIn";
             this.cmbPeriodIn.Size = new System.Drawing.Size(60, 33);
-            this.cmbPeriodIn.TabIndex = 12;
+            this.cmbPeriodIn.TabIndex = 15;
             this.cmbPeriodIn.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodIn_SelectedIndexChanged);
             // 
             // label32
@@ -649,7 +649,7 @@ namespace VisitorReg.View.Guard
             this.cmbHourOut.Location = new System.Drawing.Point(838, 667);
             this.cmbHourOut.Name = "cmbHourOut";
             this.cmbHourOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbHourOut.TabIndex = 14;
+            this.cmbHourOut.TabIndex = 17;
             // 
             // cmbMinutesOut
             // 
@@ -718,7 +718,7 @@ namespace VisitorReg.View.Guard
             this.cmbMinutesOut.Location = new System.Drawing.Point(925, 667);
             this.cmbMinutesOut.Name = "cmbMinutesOut";
             this.cmbMinutesOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbMinutesOut.TabIndex = 15;
+            this.cmbMinutesOut.TabIndex = 18;
             // 
             // label31
             // 
@@ -738,7 +738,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodOut.Location = new System.Drawing.Point(1006, 667);
             this.cmbPeriodOut.Name = "cmbPeriodOut";
             this.cmbPeriodOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbPeriodOut.TabIndex = 16;
+            this.cmbPeriodOut.TabIndex = 9;
             // 
             // label33
             // 
@@ -755,7 +755,7 @@ namespace VisitorReg.View.Guard
             this.txtHouseNo.Location = new System.Drawing.Point(182, 491);
             this.txtHouseNo.Name = "txtHouseNo";
             this.txtHouseNo.Size = new System.Drawing.Size(392, 34);
-            this.txtHouseNo.TabIndex = 7;
+            this.txtHouseNo.TabIndex = 10;
             this.txtHouseNo.Text = "";
             this.txtHouseNo.TextChanged += new System.EventHandler(this.txtHouseNo_TextChanged);
             // 
@@ -783,29 +783,28 @@ namespace VisitorReg.View.Guard
             this.cmbPurpose.Location = new System.Drawing.Point(838, 436);
             this.cmbPurpose.Name = "cmbPurpose";
             this.cmbPurpose.Size = new System.Drawing.Size(389, 33);
-            this.cmbPurpose.TabIndex = 8;
+            this.cmbPurpose.TabIndex = 11;
             this.cmbPurpose.SelectedIndexChanged += new System.EventHandler(this.cmbPurpose_SelectedIndexChanged);
             // 
-            // label29
+            // lblOthers
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(698, 491);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(118, 20);
-            this.label29.TabIndex = 58;
-            this.label29.Text = "Other(Specify)";
+            this.lblOthers.AutoSize = true;
+            this.lblOthers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOthers.Location = new System.Drawing.Point(698, 491);
+            this.lblOthers.Name = "lblOthers";
+            this.lblOthers.Size = new System.Drawing.Size(118, 20);
+            this.lblOthers.TabIndex = 58;
+            this.lblOthers.Text = "Other(Specify)";
             // 
-            // txtOthers
+            // txtRemarks
             // 
-            this.txtOthers.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtOthers.Location = new System.Drawing.Point(838, 484);
-            this.txtOthers.Name = "txtOthers";
-            this.txtOthers.ReadOnly = true;
-            this.txtOthers.Size = new System.Drawing.Size(393, 78);
-            this.txtOthers.TabIndex = 9;
-            this.txtOthers.Text = "";
-            this.txtOthers.TextChanged += new System.EventHandler(this.txtOthers_TextChanged);
+            this.txtRemarks.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtRemarks.Location = new System.Drawing.Point(838, 484);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(393, 78);
+            this.txtRemarks.TabIndex = 12;
+            this.txtRemarks.Text = "";
+            this.txtRemarks.TextChanged += new System.EventHandler(this.txtOthers_TextChanged);
             // 
             // groupBox1
             // 
@@ -833,8 +832,8 @@ namespace VisitorReg.View.Guard
             this.groupBox1.Controls.Add(this.txtPassNo);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtOthers);
-            this.groupBox1.Controls.Add(this.label29);
+            this.groupBox1.Controls.Add(this.txtRemarks);
+            this.groupBox1.Controls.Add(this.lblOthers);
             this.groupBox1.Controls.Add(this.cmbPurpose);
             this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.txtHouseNo);
@@ -873,6 +872,82 @@ namespace VisitorReg.View.Guard
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registration Form";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(180, 290);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(394, 101);
+            this.txtAddress.TabIndex = 7;
+            this.txtAddress.Text = "";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(21, 297);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 20);
+            this.label14.TabIndex = 86;
+            this.label14.Text = "Address";
+            // 
+            // txtRace
+            // 
+            this.txtRace.Location = new System.Drawing.Point(180, 235);
+            this.txtRace.Name = "txtRace";
+            this.txtRace.Size = new System.Drawing.Size(392, 34);
+            this.txtRace.TabIndex = 6;
+            this.txtRace.Text = "";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 242);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 20);
+            this.label15.TabIndex = 84;
+            this.label15.Text = "Race";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbGender.Location = new System.Drawing.Point(180, 181);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(392, 33);
+            this.cmbGender.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(21, 188);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 20);
+            this.label13.TabIndex = 82;
+            this.label13.Text = "Gender";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(701, 181);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 20);
+            this.label12.TabIndex = 80;
+            this.label12.Text = "Photo";
+            // 
+            // picVisitor
+            // 
+            this.picVisitor.Location = new System.Drawing.Point(838, 181);
+            this.picVisitor.Name = "picVisitor";
+            this.picVisitor.Size = new System.Drawing.Size(212, 231);
+            this.picVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picVisitor.TabIndex = 79;
+            this.picVisitor.TabStop = false;
             // 
             // btnReadMyKad
             // 
@@ -915,7 +990,7 @@ namespace VisitorReg.View.Guard
             this.txtDateOut.Location = new System.Drawing.Point(837, 617);
             this.txtDateOut.Name = "txtDateOut";
             this.txtDateOut.Size = new System.Drawing.Size(229, 30);
-            this.txtDateOut.TabIndex = 13;
+            this.txtDateOut.TabIndex = 16;
             // 
             // lblNoPlateRequired
             // 
@@ -1020,7 +1095,7 @@ namespace VisitorReg.View.Guard
             this.txtPassNo.MaxLength = 4;
             this.txtPassNo.Name = "txtPassNo";
             this.txtPassNo.Size = new System.Drawing.Size(91, 34);
-            this.txtPassNo.TabIndex = 6;
+            this.txtPassNo.TabIndex = 9;
             this.txtPassNo.Text = "";
             this.txtPassNo.TextChanged += new System.EventHandler(this.txtPassNo_TextChanged);
             // 
@@ -1043,82 +1118,6 @@ namespace VisitorReg.View.Guard
             this.label10.Size = new System.Drawing.Size(113, 20);
             this.label10.TabIndex = 62;
             this.label10.Text = "Visit Details";
-            // 
-            // picVisitor
-            // 
-            this.picVisitor.Location = new System.Drawing.Point(838, 181);
-            this.picVisitor.Name = "picVisitor";
-            this.picVisitor.Size = new System.Drawing.Size(212, 231);
-            this.picVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picVisitor.TabIndex = 79;
-            this.picVisitor.TabStop = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(701, 181);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 20);
-            this.label12.TabIndex = 80;
-            this.label12.Text = "Photo";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(21, 188);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 20);
-            this.label13.TabIndex = 82;
-            this.label13.Text = "Gender";
-            // 
-            // cmbGender
-            // 
-            this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmbGender.Location = new System.Drawing.Point(180, 181);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(392, 33);
-            this.cmbGender.TabIndex = 83;
-            // 
-            // txtRace
-            // 
-            this.txtRace.Location = new System.Drawing.Point(180, 235);
-            this.txtRace.Name = "txtRace";
-            this.txtRace.Size = new System.Drawing.Size(392, 34);
-            this.txtRace.TabIndex = 85;
-            this.txtRace.Text = "";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(21, 242);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 20);
-            this.label15.TabIndex = 84;
-            this.label15.Text = "Race";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(180, 290);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(394, 101);
-            this.txtAddress.TabIndex = 87;
-            this.txtAddress.Text = "";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(21, 297);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 20);
-            this.label14.TabIndex = 86;
-            this.label14.Text = "Address";
             // 
             // RegisterVisitor
             // 
@@ -1207,8 +1206,8 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.RichTextBox txtHouseNo;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox cmbPurpose;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.RichTextBox txtOthers;
+        private System.Windows.Forms.Label lblOthers;
+        private System.Windows.Forms.RichTextBox txtRemarks;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox txtPassNo;

@@ -42,10 +42,15 @@ namespace VisitorReg.DAL
                     cmd.Parameters.AddWithValue("@ICNo", visitor.ICNo);
                     cmd.Parameters.AddWithValue("@OldICNo", visitor.OldICNo);
                     cmd.Parameters.AddWithValue("@ContactNo", visitor.ContactNo);
+                    cmd.Parameters.AddWithValue("@Gender", visitor.Gender);
+                    cmd.Parameters.AddWithValue("@Race", visitor.Race);
+                    cmd.Parameters.AddWithValue("@Address", visitor.Address);
+                    cmd.Parameters.AddWithValue("@PhotoUrl", visitor.PhotoUrl);
                     cmd.Parameters.AddWithValue("@NoPlate", visitor.NoPlate);
                     cmd.Parameters.AddWithValue("@PassNo", visitor.PassNo);
                     cmd.Parameters.AddWithValue("@HouseNo", visitor.HouseNo);
                     cmd.Parameters.AddWithValue("@PurposeVisit", visitor.PurposeVisit);
+                    cmd.Parameters.AddWithValue("@Remarks", visitor.Remarks);
                     cmd.Parameters.AddWithValue("@DateTimeIn", visitor.DateTimeIn);
                     cmd.Parameters.AddWithValue("@DateTimeOut", visitor.DateTimeOut);
                     cmd.Parameters.AddWithValue("@CreatedDate", visitor.CreatedDate);
@@ -123,6 +128,50 @@ namespace VisitorReg.DAL
                         reader.NextResult();
                     }
                     log.Debug($"Login success");
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+
+            return result;
+        }
+        public VisitorModel GetVisitorInfo(string ICNo)
+        {
+            string sql;
+            SqlConnection cnn;
+            VisitorModel result = new VisitorModel();
+
+            sql = " SELECT Id,Name,ICNo,OldICNo,ContactNo,Gender,Race,Address,PhotoUrl FROM VisitorInfo WHERE ICNo = @ICNo ";
+            using (cnn = new SqlConnection(_connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnn);
+                    cmd.Parameters.Add("@ICNo", SqlDbType.VarChar).Value = ICNo;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            result.Id = reader.GetInt32(0);
+                            result.Name = reader.GetString(1);
+                            result.ICNo = reader.GetString(2);
+                            result.OldICNo = reader.GetString(3);
+                            result.ContactNo = reader.GetString(4);
+                            result.Gender = reader.GetString(5);
+                            result.Race = reader.GetString(6);
+                            result.Address = reader.GetString(7);
+                            result.PhotoUrl = reader.GetString(8);
+                        }
+                        reader.NextResult();
+                    }
                 }
                 catch (Exception ex)
                 {

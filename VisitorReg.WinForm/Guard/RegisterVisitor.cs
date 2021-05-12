@@ -12,7 +12,7 @@ namespace VisitorReg.View.Guard
 {
     public partial class RegisterVisitor : Form
     {
-        private VisitorService visitorService = new VisitorService();
+        private VisitorService _visitorService = new VisitorService();
         private UserService userService = new UserService();
         public RegisterVisitor()
         {
@@ -33,15 +33,13 @@ namespace VisitorReg.View.Guard
                 lblPurposeVisitRequired.Hide();
                 if (cmbPurpose.SelectedItem.ToString() == "Others")
                 {
-                    txtOthers.ReadOnly = false;
-                    txtOthers.Enabled = true;
+                    lblOthers.Text = "Other(Specify)";
                     lblOtherRequired.Show();
                 }
                 else
                 {
-                    txtOthers.Text = "";
-                    txtOthers.ReadOnly = true;
-                    txtOthers.Enabled = false;
+                    lblOthers.Text = "Remarks";
+                    txtRemarks.Text = "";
                     lblOtherRequired.Hide();
                 }
             }
@@ -63,16 +61,21 @@ namespace VisitorReg.View.Guard
                     ICNo = txtVisitorIC.Text,
                     ContactNo = txtContactNo.Text,
                     OldICNo = txtVisitorICOld.Text,
-                    NoPlate  =txtNoPlate.Text,
+                    Gender = cmbGender.SelectedItem.ToString(),
+                    Race = txtRace.Text,
+                    PhotoUrl = File.Exists($"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg")? $"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg":"",
+                    Address = txtAddress.Text,
+                    NoPlate = txtNoPlate.Text,
                     PassNo = txtPassNo.Text,
                     HouseNo = txtHouseNo.Text,
-                    PurposeVisit = cmbPurpose.SelectedItem.ToString() == "Others"?txtOthers.Text:cmbPurpose.SelectedText,
+                    PurposeVisit = cmbPurpose.SelectedItem.ToString() == "Others"?txtRemarks.Text:cmbPurpose.SelectedItem.ToString().Trim(),
+                    Remarks = cmbPurpose.SelectedItem.ToString() != "" ? txtRemarks.Text:"",
                     DateTimeIn = Convert.ToDateTime($"{txtDateIn.Text} {cmbHourIn.SelectedItem}:{cmbMinutesIn.SelectedItem} {cmbPeriodIn.SelectedItem}", new CultureInfo("ms-MY")),
                     DateTimeOut = cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0 ? Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY")) : NullDatetime,
                     CreatedBy = UserInfo.Username,
                     CreatedDate = DateTime.Now
                 };
-                var result = visitorService.Insert(visitor);
+                var result = _visitorService.Insert(visitor);
                 if (result.MessageType == MessageType.Success)
                 {
                     Reset();
@@ -105,6 +108,11 @@ namespace VisitorReg.View.Guard
             {
                 lblICNoRequired.Show();
                 txtVisitorIC.Focus();
+            }else if(txtVisitorIC.Text.Length > 11)
+            {
+                GetExisitingVisitorInfo();
+                lblICNoRequired.Hide();
+                txtVisitorIC.Text.ToUpper();
             }
             else
             {
@@ -161,10 +169,10 @@ namespace VisitorReg.View.Guard
 
         private void txtOthers_TextChanged(object sender, EventArgs e)
         {
-            if (txtOthers.Text.Length == 0)
+            if (txtRemarks.Text.Length == 0)
             {
                 lblOtherRequired.Show();
-                txtOthers.Focus();
+                txtRemarks.Focus();
                 return;
             }
             else
@@ -240,6 +248,7 @@ namespace VisitorReg.View.Guard
 
         private void btnReadMyKad_Click(object sender, EventArgs e)
         {
+            Reset();
             ReadMyKad();
         }
 
@@ -252,7 +261,7 @@ namespace VisitorReg.View.Guard
             cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
             cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
             cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
-            txtOthers.Enabled = false;
+            txtRemarks.Enabled = true;
             lblNameRequired.Show();
             lblICNoRequired.Show();
             lblNoPlateRequired.Show();
@@ -264,6 +273,7 @@ namespace VisitorReg.View.Guard
             lblTimeOutRequired.Hide();
             lblDatetimeOutRequired.Hide();
             picVisitor.ImageLocation = "Images/anonymity.png";
+            lblOthers.Text = "Remarks";
         }
 
         private bool Validation()
@@ -298,10 +308,10 @@ namespace VisitorReg.View.Guard
                 cmbPurpose.Focus();
                 return false;
             }
-            else if (cmbPurpose.SelectedIndex > 0 && cmbPurpose.SelectedItem.ToString() == "Others" && txtOthers.Text.Length == 0)
+            else if (cmbPurpose.SelectedIndex > 0 && cmbPurpose.SelectedItem.ToString() == "Others" && txtRemarks.Text.Length == 0)
             {
                 lblOtherRequired.Show();
-                txtOthers.Focus();
+                txtRemarks.Focus();
                 return false;
             }
             else if (txtHouseNo.Text.Length == 0)
@@ -310,13 +320,13 @@ namespace VisitorReg.View.Guard
                 txtHouseNo.Focus();
                 return false;
             }
-            else if (txtDateOut.Text.Length > 0 && (cmbHourOut.SelectedIndex < 0 || cmbMinutesOut.SelectedIndex < 0 || cmbPeriodOut.SelectedIndex < 0))
+            else if (txtDateOut.Text.Replace("/","").Trim().Length > 0 && (cmbHourOut.SelectedIndex < 0 || cmbMinutesOut.SelectedIndex < 0 || cmbPeriodOut.SelectedIndex < 0))
             {
                 lblTimeOutRequired.Show();
                 cmbHourOut.Focus();
                 return false;
             }
-            else if (txtDateOut.Text.Length == 0 && (cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0))
+            else if (txtDateOut.Text.Replace("/", "").Trim().Length == 0 && (cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0))
             {
                 lblDatetimeOutRequired.Show();
                 txtDateOut.Focus();
@@ -332,19 +342,22 @@ namespace VisitorReg.View.Guard
             txtVisitorIC.Text = "";
             txtContactNo.Text = "";
             txtVisitorICOld.Text = "";
+            cmbGender.SelectedIndex = -1;
+            txtRace.Text = "";
+            txtAddress.Text = "";
+            picVisitor.ImageLocation = "Images/anonymity.png";
             txtNoPlate.Text = "";
             txtPassNo.Text = "";
             txtHouseNo.Text = "";
             cmbPurpose.SelectedIndex = -1;
-            txtOthers.Text = "";
-            txtOthers.ReadOnly = true;
-            txtOthers.Enabled = false;
+            txtRemarks.Text = "";
             txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
             cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
             cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
             lblTimeOutRequired.Hide();
             lblDatetimeOutRequired.Hide();
+            txtVisitorName.Focus();
         }
 
         private void ReadMyKad()
@@ -360,6 +373,7 @@ namespace VisitorReg.View.Guard
                 proc.Start();
                 proc.WaitForExit();
                 readOutput();
+                GetExisitingVisitorInfo();
             }
             catch (Exception ex)
             {
@@ -418,6 +432,23 @@ namespace VisitorReg.View.Guard
                     }
                 }
                 picVisitor.ImageLocation = Settings.ReaderSettings + "\\photo.jpg";
+            }
+        }
+        private void GetExisitingVisitorInfo()
+        {
+            if (txtVisitorIC.Text.Length > 0)
+            {
+                var visitor = _visitorService.GetVisitorInfo(txtVisitorIC.Text);
+                if (visitor.Id > 0)
+                {
+                    txtVisitorName.Text = visitor.Name;
+                    txtVisitorICOld.Text = visitor.OldICNo;
+                    cmbGender.SelectedItem = visitor.Gender.Trim();
+                    txtRace.Text = visitor.Race;
+                    txtContactNo.Text = visitor.ContactNo;
+                    txtAddress.Text = visitor.Address;
+                    picVisitor.ImageLocation = visitor.PhotoUrl.Length > 0 ? visitor.PhotoUrl : "Images/anonymity.png";
+                }
             }
         }
         #endregion

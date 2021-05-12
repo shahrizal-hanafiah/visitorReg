@@ -66,12 +66,9 @@ namespace VisitorReg.View.Guard
                 adapter.Fill(ds, "VisitorInfo");
 
                 TotalPage = ds.Tables[0].Rows.Count;
-
                 dgVisitorList.AutoGenerateColumns = true;
                 dgVisitorList.DataSource = ds;
                 dgVisitorList.DataMember = "VisitorInfo";
-                
-
 
                 adapter.Dispose();
                 command.Dispose();
@@ -79,7 +76,7 @@ namespace VisitorReg.View.Guard
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open visitor list ! ");
+                MessageBox.Show($"Can not open visitor list ! Error: {ex.Message}");
             }
         }
 
