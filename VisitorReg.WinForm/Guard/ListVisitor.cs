@@ -36,7 +36,6 @@ namespace VisitorReg.View.Guard
         {
             txtDateFrom.Text = DateTime.Now.Date.ToString();
             txtDateTo.Text = DateTime.Now.Date.ToString();
-            txtDateOut.Mask = "00/00/0000";
             this.CurrentPageIndex = 1;
             PopulateTableVisitor(CurrentPageIndex);
             reset();
@@ -197,7 +196,7 @@ namespace VisitorReg.View.Guard
         {
             if (Validation())
             {
-                var visitor = new VisitorModel()
+                    var visitor = new VisitorModel()
                 {
                     Id = Convert.ToInt32(txtId.Text),
                     DateTimeOut = Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY"))

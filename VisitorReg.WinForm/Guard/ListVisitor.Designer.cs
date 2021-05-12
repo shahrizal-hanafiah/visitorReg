@@ -70,13 +70,13 @@ namespace VisitorReg.View.Guard
             this.label9 = new System.Windows.Forms.Label();
             this.lblTimeOutRequired = new System.Windows.Forms.Label();
             this.lblDatetimeOutRequired = new System.Windows.Forms.Label();
-            this.txtDateOut = new System.Windows.Forms.MaskedTextBox();
             this.cmbPeriodOut = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.cmbMinutesOut = new System.Windows.Forms.ComboBox();
             this.cmbHourOut = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.txtDateOut = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
@@ -433,6 +433,7 @@ namespace VisitorReg.View.Guard
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtDateOut);
             this.groupBox2.Controls.Add(this.txtId);
             this.groupBox2.Controls.Add(this.txtDateTimeIn);
             this.groupBox2.Controls.Add(this.label25);
@@ -441,7 +442,6 @@ namespace VisitorReg.View.Guard
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lblTimeOutRequired);
             this.groupBox2.Controls.Add(this.lblDatetimeOutRequired);
-            this.groupBox2.Controls.Add(this.txtDateOut);
             this.groupBox2.Controls.Add(this.cmbPeriodOut);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.cmbMinutesOut);
@@ -538,13 +538,6 @@ namespace VisitorReg.View.Guard
             this.lblDatetimeOutRequired.Size = new System.Drawing.Size(87, 20);
             this.lblDatetimeOutRequired.TabIndex = 85;
             this.lblDatetimeOutRequired.Text = "* Required";
-            // 
-            // txtDateOut
-            // 
-            this.txtDateOut.Location = new System.Drawing.Point(662, 26);
-            this.txtDateOut.Name = "txtDateOut";
-            this.txtDateOut.Size = new System.Drawing.Size(229, 22);
-            this.txtDateOut.TabIndex = 79;
             // 
             // cmbPeriodOut
             // 
@@ -677,6 +670,13 @@ namespace VisitorReg.View.Guard
             this.label26.TabIndex = 82;
             this.label26.Text = "Date Out";
             // 
+            // txtDateOut
+            // 
+            this.txtDateOut.Location = new System.Drawing.Point(662, 26);
+            this.txtDateOut.Name = "txtDateOut";
+            this.txtDateOut.Size = new System.Drawing.Size(230, 22);
+            this.txtDateOut.TabIndex = 93;
+            // 
             // ListVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -754,7 +754,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTimeOutRequired;
         private System.Windows.Forms.Label lblDatetimeOutRequired;
-        private System.Windows.Forms.MaskedTextBox txtDateOut;
         private System.Windows.Forms.ComboBox cmbPeriodOut;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox cmbMinutesOut;
@@ -767,5 +766,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.RichTextBox txtDateTimeIn;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label txtId;
+        private System.Windows.Forms.DateTimePicker txtDateOut;
     }
 }
