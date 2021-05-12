@@ -127,7 +127,7 @@ namespace VisitorReg.View.Guard
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1658, 50);
+            this.panel1.Size = new System.Drawing.Size(1679, 50);
             this.panel1.TabIndex = 0;
             // 
             // lblVisitor
@@ -151,7 +151,7 @@ namespace VisitorReg.View.Guard
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(240, 936);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1418, 46);
+            this.panel3.Size = new System.Drawing.Size(1439, 46);
             this.panel3.TabIndex = 2;
             // 
             // label6
@@ -1125,7 +1125,7 @@ namespace VisitorReg.View.Guard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1679, 940);
+            this.ClientSize = new System.Drawing.Size(1700, 940);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlLeft);

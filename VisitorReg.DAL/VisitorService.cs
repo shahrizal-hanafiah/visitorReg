@@ -85,6 +85,55 @@ namespace VisitorReg.DAL
             }
             return result;
         }
+        public ResponseMessageModel UpdateDateTimeOut(VisitorModel visitor)
+        {
+            ResponseMessageModel result = new ResponseMessageModel()
+            {
+                MessageType = MessageType.Failed,
+                Message = "Failed to update visitor record"
+            };
+            string connectionString;
+            SqlConnection cnn;
+            connectionString = Settings.ConnectionString;
+            using (cnn = new SqlConnection(connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_update", cnn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DateTimeOut", visitor.DateTimeOut);
+                    cmd.Parameters.AddWithValue("@Id", visitor.Id);
+
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i != 0)
+                    {
+                        result.MessageType = MessageType.Success;
+                        result.Message = "Visitor record updated!";
+                    }
+
+                    log.Debug($"Successfully update visitor record");
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                    result.MessageType = MessageType.Error;
+                    result.Message = ex.Message;
+                    var error = new Error()
+                    {
+                        Message = ex.Message,
+                        Details = $"Stack Trace:{ex.StackTrace}"
+                    };
+                    result.Error = error;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+            return result;
+        }
         public List<DashboardModel> GetDashboardStats()
         {
             string sql;

@@ -61,6 +61,22 @@ namespace VisitorReg.View.Guard
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNextPage = new System.Windows.Forms.Button();
             this.btnFirstPage = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.Label();
+            this.txtDateTimeIn = new System.Windows.Forms.RichTextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtVisitorName = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblTimeOutRequired = new System.Windows.Forms.Label();
+            this.lblDatetimeOutRequired = new System.Windows.Forms.Label();
+            this.txtDateOut = new System.Windows.Forms.MaskedTextBox();
+            this.cmbPeriodOut = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.cmbMinutesOut = new System.Windows.Forms.ComboBox();
+            this.cmbHourOut = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
@@ -72,6 +88,7 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.dgVisitorList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grpPagination.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblVisitor
@@ -130,7 +147,7 @@ namespace VisitorReg.View.Guard
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 50);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(240, 850);
+            this.pnlLeft.Size = new System.Drawing.Size(240, 936);
             this.pnlLeft.TabIndex = 2;
             // 
             // label23
@@ -255,7 +272,7 @@ namespace VisitorReg.View.Guard
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(240, 854);
+            this.panel3.Location = new System.Drawing.Point(240, 940);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1225, 46);
             this.panel3.TabIndex = 3;
@@ -284,12 +301,14 @@ namespace VisitorReg.View.Guard
             this.dgVisitorList.AllowUserToAddRows = false;
             this.dgVisitorList.AllowUserToDeleteRows = false;
             this.dgVisitorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVisitorList.Location = new System.Drawing.Point(261, 152);
+            this.dgVisitorList.Location = new System.Drawing.Point(261, 146);
             this.dgVisitorList.Name = "dgVisitorList";
             this.dgVisitorList.RowHeadersWidth = 51;
             this.dgVisitorList.RowTemplate.Height = 24;
+            this.dgVisitorList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgVisitorList.Size = new System.Drawing.Size(1176, 532);
             this.dgVisitorList.TabIndex = 4;
+            this.dgVisitorList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVisitorList_CellClick);
             // 
             // groupBox1
             // 
@@ -356,7 +375,7 @@ namespace VisitorReg.View.Guard
             this.grpPagination.Controls.Add(this.btnPrevious);
             this.grpPagination.Controls.Add(this.btnNextPage);
             this.grpPagination.Controls.Add(this.btnFirstPage);
-            this.grpPagination.Location = new System.Drawing.Point(261, 697);
+            this.grpPagination.Location = new System.Drawing.Point(261, 834);
             this.grpPagination.Name = "grpPagination";
             this.grpPagination.Size = new System.Drawing.Size(1176, 100);
             this.grpPagination.TabIndex = 6;
@@ -370,6 +389,7 @@ namespace VisitorReg.View.Guard
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnLastPage
             // 
@@ -411,12 +431,259 @@ namespace VisitorReg.View.Guard
             this.btnFirstPage.UseVisualStyleBackColor = true;
             this.btnFirstPage.Click += new System.EventHandler(this.btnFirstPage_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtId);
+            this.groupBox2.Controls.Add(this.txtDateTimeIn);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.btnSubmit);
+            this.groupBox2.Controls.Add(this.txtVisitorName);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.lblTimeOutRequired);
+            this.groupBox2.Controls.Add(this.lblDatetimeOutRequired);
+            this.groupBox2.Controls.Add(this.txtDateOut);
+            this.groupBox2.Controls.Add(this.cmbPeriodOut);
+            this.groupBox2.Controls.Add(this.label31);
+            this.groupBox2.Controls.Add(this.cmbMinutesOut);
+            this.groupBox2.Controls.Add(this.cmbHourOut);
+            this.groupBox2.Controls.Add(this.label32);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(261, 695);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1176, 133);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Update Date and Time Out";
+            // 
+            // txtId
+            // 
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(485, 22);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(0, 17);
+            this.txtId.TabIndex = 92;
+            this.txtId.Visible = false;
+            // 
+            // txtDateTimeIn
+            // 
+            this.txtDateTimeIn.Location = new System.Drawing.Point(86, 72);
+            this.txtDateTimeIn.Name = "txtDateTimeIn";
+            this.txtDateTimeIn.ReadOnly = true;
+            this.txtDateTimeIn.Size = new System.Drawing.Size(392, 34);
+            this.txtDateTimeIn.TabIndex = 91;
+            this.txtDateTimeIn.Text = "";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(11, 82);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(63, 20);
+            this.label25.TabIndex = 90;
+            this.label25.Text = "Date In";
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSubmit.Location = new System.Drawing.Point(1041, 82);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(118, 45);
+            this.btnSubmit.TabIndex = 89;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // txtVisitorName
+            // 
+            this.txtVisitorName.Location = new System.Drawing.Point(86, 25);
+            this.txtVisitorName.Name = "txtVisitorName";
+            this.txtVisitorName.ReadOnly = true;
+            this.txtVisitorName.Size = new System.Drawing.Size(392, 34);
+            this.txtVisitorName.TabIndex = 88;
+            this.txtVisitorName.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(11, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 20);
+            this.label9.TabIndex = 87;
+            this.label9.Text = "Name";
+            // 
+            // lblTimeOutRequired
+            // 
+            this.lblTimeOutRequired.AutoSize = true;
+            this.lblTimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeOutRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblTimeOutRequired.Location = new System.Drawing.Point(897, 78);
+            this.lblTimeOutRequired.Name = "lblTimeOutRequired";
+            this.lblTimeOutRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblTimeOutRequired.TabIndex = 86;
+            this.lblTimeOutRequired.Text = "* Required";
+            // 
+            // lblDatetimeOutRequired
+            // 
+            this.lblDatetimeOutRequired.AutoSize = true;
+            this.lblDatetimeOutRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatetimeOutRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblDatetimeOutRequired.Location = new System.Drawing.Point(898, 30);
+            this.lblDatetimeOutRequired.Name = "lblDatetimeOutRequired";
+            this.lblDatetimeOutRequired.Size = new System.Drawing.Size(87, 20);
+            this.lblDatetimeOutRequired.TabIndex = 85;
+            this.lblDatetimeOutRequired.Text = "* Required";
+            // 
+            // txtDateOut
+            // 
+            this.txtDateOut.Location = new System.Drawing.Point(662, 26);
+            this.txtDateOut.Name = "txtDateOut";
+            this.txtDateOut.Size = new System.Drawing.Size(229, 22);
+            this.txtDateOut.TabIndex = 79;
+            // 
+            // cmbPeriodOut
+            // 
+            this.cmbPeriodOut.FormattingEnabled = true;
+            this.cmbPeriodOut.Items.AddRange(new object[] {
+            "AM",
+            "PM"});
+            this.cmbPeriodOut.Location = new System.Drawing.Point(831, 72);
+            this.cmbPeriodOut.Name = "cmbPeriodOut";
+            this.cmbPeriodOut.Size = new System.Drawing.Size(60, 24);
+            this.cmbPeriodOut.TabIndex = 78;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(724, 78);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(13, 17);
+            this.label31.TabIndex = 84;
+            this.label31.Text = ":";
+            // 
+            // cmbMinutesOut
+            // 
+            this.cmbMinutesOut.FormattingEnabled = true;
+            this.cmbMinutesOut.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.cmbMinutesOut.Location = new System.Drawing.Point(750, 72);
+            this.cmbMinutesOut.Name = "cmbMinutesOut";
+            this.cmbMinutesOut.Size = new System.Drawing.Size(60, 24);
+            this.cmbMinutesOut.TabIndex = 81;
+            // 
+            // cmbHourOut
+            // 
+            this.cmbHourOut.FormattingEnabled = true;
+            this.cmbHourOut.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"});
+            this.cmbHourOut.Location = new System.Drawing.Point(663, 72);
+            this.cmbHourOut.Name = "cmbHourOut";
+            this.cmbHourOut.Size = new System.Drawing.Size(60, 24);
+            this.cmbHourOut.TabIndex = 80;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(552, 75);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(78, 20);
+            this.label32.TabIndex = 83;
+            this.label32.Text = "Time Out";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(553, 26);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(77, 20);
+            this.label26.TabIndex = 82;
+            this.label26.Text = "Date Out";
+            // 
             // ListVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1465, 900);
+            this.ClientSize = new System.Drawing.Size(1465, 986);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpPagination);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgVisitorList);
@@ -445,6 +712,8 @@ namespace VisitorReg.View.Guard
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpPagination.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,5 +751,21 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNextPage;
         private System.Windows.Forms.Button btnFirstPage;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTimeOutRequired;
+        private System.Windows.Forms.Label lblDatetimeOutRequired;
+        private System.Windows.Forms.MaskedTextBox txtDateOut;
+        private System.Windows.Forms.ComboBox cmbPeriodOut;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ComboBox cmbMinutesOut;
+        private System.Windows.Forms.ComboBox cmbHourOut;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.RichTextBox txtVisitorName;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.RichTextBox txtDateTimeIn;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label txtId;
     }
 }
