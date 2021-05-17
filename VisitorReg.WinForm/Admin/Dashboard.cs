@@ -10,12 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisitorReg.DAL;
+using VisitorReg.WinForm.Admin;
 
 namespace VisitorReg.View.Admin
 {
     public partial class Dashboard : Form
     {
         private VisitorService _visitorService = new VisitorService();
+        private UserService _userService = new UserService();
         public Dashboard()
         {
             InitializeComponent();
@@ -23,8 +25,17 @@ namespace VisitorReg.View.Admin
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            LoadCountBoard();
-            LoadGraph();
+            try
+            {
+                LoadCountBoard();
+                LoadGraph();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error");
+            }
+            
         }
 
         private void LoadGraph()
@@ -97,8 +108,17 @@ namespace VisitorReg.View.Admin
 
         private void linkListVisitor_Click(object sender, EventArgs e)
         {
-
+            var visitorList = new ListVisitor();
+            visitorList.Show();
+            this.Hide();
         }
 
+        private void linkLogout_Click(object sender, EventArgs e)
+        {
+            _userService.Logout();
+            this.Hide();
+            var login = new Login();
+            login.Show();
+        }
     }
 }

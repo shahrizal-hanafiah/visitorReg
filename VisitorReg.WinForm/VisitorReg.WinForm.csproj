@@ -66,6 +66,12 @@
     <Compile Include="Admin\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ListVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ListVisitor.Designer.cs">
+      <DependentUpon>ListVisitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guard\ListVisitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="Admin\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ListVisitor.resx">
+      <DependentUpon>ListVisitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Guard\ListVisitor.resx">
       <DependentUpon>ListVisitor.cs</DependentUpon>

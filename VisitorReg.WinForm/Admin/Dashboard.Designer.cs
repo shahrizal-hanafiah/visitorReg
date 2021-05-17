@@ -154,6 +154,7 @@ namespace VisitorReg.View.Admin
             this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkLogout.TabIndex = 14;
             this.linkLogout.TabStop = false;
+            this.linkLogout.Click += new System.EventHandler(this.linkLogout_Click);
             // 
             // label8
             // 
