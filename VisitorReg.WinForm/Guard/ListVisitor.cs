@@ -160,6 +160,20 @@ namespace VisitorReg.View.Guard
                 {
                     txtDateTimeIn.Text = cell[counter].Value.ToString();
                 }
+                else if (cell[counter].ColumnIndex == 9 && cell[counter].Value.ToString().Trim().Count() > 0)
+                {
+                    txtDateOut.Enabled = false;
+                    cmbHourOut.Enabled = false;
+                    cmbMinutesOut.Enabled = false;
+                    cmbPeriodOut.Enabled = false;
+                }
+                else if(cell[counter].ColumnIndex == 9 && cell[counter].Value.ToString().Trim().Count() == 0)
+                {
+                    txtDateOut.Enabled = true;
+                    cmbHourOut.Enabled = true;
+                    cmbMinutesOut.Enabled = true;
+                    cmbPeriodOut.Enabled = true;
+                }
             }
         }
 
@@ -189,25 +203,47 @@ namespace VisitorReg.View.Guard
                 btnSubmit.Focus();
             }
 
+            var hourOut = cmbHourOut.SelectedIndex < 0 ? "00" : cmbHourOut.SelectedItem.ToString();
+            var minutesOut = cmbMinutesOut.SelectedIndex < 0 ? "00" : cmbMinutesOut.SelectedItem.ToString();
+            var periodOut = cmbPeriodOut.SelectedIndex < 0 ? "AM" : cmbPeriodOut.SelectedItem.ToString();
+            var dtOut = Convert.ToDateTime(txtDateOut.Text).ToString("dd/MM/yyyy");
+            var dateOut = Convert.ToDateTime(dtOut + " " + hourOut + ":" + minutesOut + " " + periodOut, new CultureInfo("ms-MY"));
+            var dateIn = Convert.ToDateTime(txtDateTimeIn.Text);
+
+            if (dateOut < dateIn)
+            {
+                MessageBox.Show("Date out cannot less than Date in");
+                txtDateOut.Focus();
+                return false;
+            }
+
             return true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Validation())
+            try
             {
+                if (Validation())
+                {
                     var visitor = new VisitorModel()
-                {
-                    Id = Convert.ToInt32(txtId.Text),
-                    DateTimeOut = Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY"))
-                };
-                var result = _visitorService.UpdateDateTimeOut(visitor);
-                MessageBox.Show(result.Message, result.MessageType.ToString());
-                if(result.MessageType == MessageType.Success)
-                {
-                    reset();
+                    {
+                        Id = Convert.ToInt32(txtId.Text),
+                        DateTimeOut = Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY"))
+                    };
+                    var result = _visitorService.UpdateDateTimeOut(visitor);
+                    MessageBox.Show(result.Message, result.MessageType.ToString());
+                    if (result.MessageType == MessageType.Success)
+                    {
+                        reset();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            
         }
         private void reset()
         {

@@ -52,41 +52,49 @@ namespace VisitorReg.View.Guard
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Validation())
+            try
             {
-                DateTime? NullDatetime = null;
-                var visitor = new VisitorModel()
+                if (Validation())
                 {
-                    Name = txtVisitorName.Text,
-                    ICNo = txtVisitorIC.Text,
-                    ContactNo = txtContactNo.Text,
-                    OldICNo = txtVisitorICOld.Text,
-                    Gender = cmbGender.SelectedItem.ToString(),
-                    Race = txtRace.Text,
-                    PhotoUrl = File.Exists($"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg")? $"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg":"",
-                    Address = txtAddress.Text,
-                    NoPlate = txtNoPlate.Text,
-                    PassNo = txtPassNo.Text,
-                    HouseNo = txtHouseNo.Text,
-                    PurposeVisit = cmbPurpose.SelectedItem.ToString() == "Others"?txtRemarks.Text:cmbPurpose.SelectedItem.ToString().Trim(),
-                    Remarks = cmbPurpose.SelectedItem.ToString() != "" ? txtRemarks.Text:"",
-                    DateTimeIn = Convert.ToDateTime($"{txtDateIn.Text} {cmbHourIn.SelectedItem}:{cmbMinutesIn.SelectedItem} {cmbPeriodIn.SelectedItem}", new CultureInfo("ms-MY")),
-                    DateTimeOut = cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0 ? Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY")) : NullDatetime,
-                    CreatedBy = UserInfo.Username,
-                    CreatedDate = DateTime.Now
-                };
-                var result = _visitorService.Insert(visitor);
-                if (result.MessageType == MessageType.Success)
-                {
-                    Reset();
-                }
+                    DateTime? NullDatetime = null;
+                    var visitor = new VisitorModel()
+                    {
+                        Name = txtVisitorName.Text,
+                        ICNo = txtVisitorIC.Text,
+                        ContactNo = txtContactNo.Text,
+                        OldICNo = txtVisitorICOld.Text,
+                        Gender = cmbGender.SelectedIndex > 0? cmbGender.SelectedItem.ToString():"",
+                        Race = txtRace.Text,
+                        PhotoUrl = File.Exists($"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg") ? $"{Settings.PhotoSettings}\\{txtVisitorIC.Text}.jpg" : "",
+                        Address = txtAddress.Text,
+                        NoPlate = txtNoPlate.Text,
+                        PassNo = txtPassNo.Text,
+                        HouseNo = txtHouseNo.Text,
+                        PurposeVisit = cmbPurpose.SelectedItem.ToString() == "Others" ? txtRemarks.Text : cmbPurpose.SelectedItem.ToString().Trim(),
+                        Remarks = cmbPurpose.SelectedItem.ToString() != "" ? txtRemarks.Text : "",
+                        DateTimeIn = Convert.ToDateTime($"{txtDateIn.Text} {cmbHourIn.SelectedItem}:{cmbMinutesIn.SelectedItem} {cmbPeriodIn.SelectedItem}", new CultureInfo("ms-MY")),
+                        DateTimeOut = cmbHourOut.SelectedIndex > 0 || cmbMinutesOut.SelectedIndex > 0 || cmbPeriodOut.SelectedIndex > 0 ? Convert.ToDateTime($"{txtDateOut.Text} {cmbHourOut.SelectedItem}:{cmbMinutesOut.SelectedItem} {cmbPeriodOut.SelectedItem}", new CultureInfo("ms-MY")) : NullDatetime,
+                        CreatedBy = UserInfo.Username,
+                        CreatedDate = DateTime.Now
+                    };
+                    var result = _visitorService.Insert(visitor);
+                    if (result.MessageType == MessageType.Success)
+                    {
+                        Reset();
+                    }
 
-                MessageBox.Show(result.Message, result.MessageType.ToString());
+                    MessageBox.Show(result.Message, result.MessageType.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all required field(s)");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill in all required field(s)");
+                MessageBox.Show(ex.Message,"Error");
             }
+            
         }
 
         private void txtVisitorName_TextChanged(object sender, EventArgs e)
@@ -258,7 +266,7 @@ namespace VisitorReg.View.Guard
             txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             txtDateOut.Mask = "00/00/0000";
-            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
+            cmbHourIn.SelectedItem = DateTime.Now.ToString("hh");
             cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
             cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
             txtRemarks.Enabled = true;
@@ -352,7 +360,7 @@ namespace VisitorReg.View.Guard
             cmbPurpose.SelectedIndex = -1;
             txtRemarks.Text = "";
             txtDateIn.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            cmbHourIn.SelectedItem = DateTime.Now.ToString("HH");
+            cmbHourIn.SelectedItem = DateTime.Now.ToString("hh");
             cmbMinutesIn.SelectedItem = DateTime.Now.ToString("mm");
             cmbPeriodIn.SelectedItem = DateTime.Now.ToString("tt");
             lblTimeOutRequired.Hide();

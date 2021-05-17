@@ -426,7 +426,7 @@ namespace VisitorReg.View.Guard
             this.btnSubmit.Location = new System.Drawing.Point(946, 815);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(118, 45);
-            this.btnSubmit.TabIndex = 16;
+            this.btnSubmit.TabIndex = 20;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -440,7 +440,7 @@ namespace VisitorReg.View.Guard
             this.btnReset.Location = new System.Drawing.Point(1074, 815);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(118, 45);
-            this.btnReset.TabIndex = 34;
+            this.btnReset.TabIndex = 21;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -738,7 +738,7 @@ namespace VisitorReg.View.Guard
             this.cmbPeriodOut.Location = new System.Drawing.Point(1006, 667);
             this.cmbPeriodOut.Name = "cmbPeriodOut";
             this.cmbPeriodOut.Size = new System.Drawing.Size(60, 33);
-            this.cmbPeriodOut.TabIndex = 9;
+            this.cmbPeriodOut.TabIndex = 19;
             // 
             // label33
             // 
@@ -958,7 +958,7 @@ namespace VisitorReg.View.Guard
             this.btnReadMyKad.Location = new System.Drawing.Point(778, 815);
             this.btnReadMyKad.Name = "btnReadMyKad";
             this.btnReadMyKad.Size = new System.Drawing.Size(157, 45);
-            this.btnReadMyKad.TabIndex = 78;
+            this.btnReadMyKad.TabIndex = 22;
             this.btnReadMyKad.Text = "Read MyKad";
             this.btnReadMyKad.UseVisualStyleBackColor = false;
             this.btnReadMyKad.Click += new System.EventHandler(this.btnReadMyKad_Click);

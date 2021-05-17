@@ -140,18 +140,12 @@ namespace VisitorReg.DAL
             SqlConnection cnn;
             List<DashboardModel> result = new List<DashboardModel>();
 
-            sql = " SELECT [IntMonth],[MonthPurpose],[YearPurpose],[Visitor] , [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others] " +
-                  " FROM " +
-                  " (Select * from( " +
-                  " SELECT Id, PurposeVisit,Month(DateTimeIn) as IntMonth, DATENAME(month, DateTimeIn) MonthPurpose, Year(DateTimeIn) YearPurpose from VisitorInfo " +
-                  " Where Year(DateTimeIn) = Year(GETDATE()) " +
-                  " ) as a group by a.IntMonth,a.MonthPurpose, a.PurposeVisit, a.YearPurpose, a.Id) p " +
-                  " PIVOT " +
-                  " ( " +
-                  " COUNT(Id) " +
-                  " FOR PurposeVisit IN " +
-                  " ( [Visitor], [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others]) " +
-                  " ) AS pvt  ";
+            sql = "  SELECT [IntMonth],[MonthPurpose],[YearPurpose],[Visitor] , [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others] " + 
+                  " FROM(Select * from(SELECT a.Id, b.PurposeVisit, Month(b.DateTimeIn) as IntMonth, DATENAME(month, b.DateTimeIn) MonthPurpose, Year(b.DateTimeIn) YearPurpose " + 
+                  " from VisitorInfo a inner " + 
+                  " join Visits b on b.VisitorInfoId = a.Id " + 
+                  " Where Year(DateTimeIn) = Year(GETDATE())) as a group by a.IntMonth, a.MonthPurpose, a.PurposeVisit, a.YearPurpose, a.Id) p " + 
+                  " PIVOT(COUNT(Id)  FOR PurposeVisit IN( [Visitor], [Contractor], [Contractor Overnight], [Courier], [Food Delivery],[Goverment Agencies],[Others])  ) AS pvt  ";
             using (cnn = new SqlConnection(_connectionString))
             {
                 cnn.Open();
