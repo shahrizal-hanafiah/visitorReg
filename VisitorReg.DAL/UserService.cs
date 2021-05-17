@@ -65,6 +65,61 @@ namespace VisitorReg.DAL
                 }
             }
         }
+        public ResponseMessageModel Insert(UserModel user)
+        {
+            ResponseMessageModel result = new ResponseMessageModel()
+            {
+                MessageType = MessageType.Failed,
+                Message = "Failed to insert user record"
+            };
+            string connectionString;
+            SqlConnection cnn;
+            connectionString = Settings.ConnectionString;
+            using (cnn = new SqlConnection(connectionString))
+            {
+                cnn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_insertUser", cnn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Name", user.Name);
+                    cmd.Parameters.AddWithValue("@Username", user.Username);
+                    cmd.Parameters.AddWithValue("@Password", "password");
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@ContactNo", user.ContactNo);
+                    cmd.Parameters.AddWithValue("@Role", user.Role);
+                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@CreatedBy", UserInfo.Username);
+
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i != 0)
+                    {
+                        result.MessageType = MessageType.Success;
+                        result.Message = "User record inserted!";
+                    }
+
+                    log.Debug($"Successfully insert visitor record");
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"{ex.Message}");
+                    result.MessageType = MessageType.Error;
+                    result.Message = "Error occured!";
+                    var error = new Error()
+                    {
+                        Message = ex.Message,
+                        Details = $"Stack Trace:{ex.StackTrace}"
+                    };
+                    result.Error = error;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+            return result;
+        }
         public ResponseMessageModel UpdateUserProfile(UserModel userModel)
         {
             ResponseMessageModel result = new ResponseMessageModel();

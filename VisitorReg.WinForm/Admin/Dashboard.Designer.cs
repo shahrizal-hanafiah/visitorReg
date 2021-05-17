@@ -218,6 +218,7 @@ namespace VisitorReg.View.Admin
             this.linkManageUsers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkManageUsers.TabIndex = 8;
             this.linkManageUsers.TabStop = false;
+            this.linkManageUsers.Click += new System.EventHandler(this.linkManageUsers_Click);
             // 
             // lblDashboard
             // 

@@ -106,36 +106,6 @@ namespace VisitorReg.WinForm.Admin
             PopulateTableVisitor(CurrentPageIndex);
         }
 
-        private void btnFirstPage_Click(object sender, EventArgs e)
-        {
-            CurrentPageIndex = 1;
-            PopulateTableVisitor(CurrentPageIndex);
-        }
-
-        private void btnNextPage_Click(object sender, EventArgs e)
-        {
-            if (CurrentPageIndex < TotalPage)
-            {
-                CurrentPageIndex = 1;
-                PopulateTableVisitor(CurrentPageIndex);
-            }
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if (this.CurrentPageIndex > 1)
-            {
-                CurrentPageIndex--;
-                PopulateTableVisitor(CurrentPageIndex);
-            }
-        }
-
-        private void btnLastPage_Click(object sender, EventArgs e)
-        {
-            CurrentPageIndex = TotalPage;
-            PopulateTableVisitor(CurrentPageIndex);
-        }
-
         private void dgVisitorList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int counter;
@@ -252,9 +222,46 @@ namespace VisitorReg.WinForm.Admin
             cmbPeriodOut.SelectedIndex = -1;
         }
 
+        private void btnFirstPage_Click(object sender, EventArgs e)
+        {
+            CurrentPageIndex = 1;
+            PopulateTableVisitor(CurrentPageIndex);
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (CurrentPageIndex < TotalPage)
+            {
+                CurrentPageIndex = 1;
+                PopulateTableVisitor(CurrentPageIndex);
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (this.CurrentPageIndex > 1)
+            {
+                CurrentPageIndex--;
+                PopulateTableVisitor(CurrentPageIndex);
+            }
+        }
+
+        private void btnLastPage_Click(object sender, EventArgs e)
+        {
+            CurrentPageIndex = TotalPage;
+            PopulateTableVisitor(CurrentPageIndex);
+        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             PopulateTableVisitor(CurrentPageIndex);
+        }
+
+        private void linkManageUsers_Click(object sender, EventArgs e)
+        {
+            var manage = new ManageUser();
+            manage.Show();
+            this.Hide();
         }
     }
 }

@@ -120,5 +120,12 @@ namespace VisitorReg.View.Admin
             var login = new Login();
             login.Show();
         }
+
+        private void linkManageUsers_Click(object sender, EventArgs e)
+        {
+            var manage = new ManageUser();
+            manage.Show();
+            this.Hide();
+        }
     }
 }
