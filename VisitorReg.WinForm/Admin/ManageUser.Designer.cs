@@ -40,8 +40,6 @@ namespace VisitorReg.WinForm.Admin
             this.linkLogout = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.linkUserProfile = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkAudit = new System.Windows.Forms.PictureBox();
             this.lblManageUser = new System.Windows.Forms.Label();
             this.linkManageUsers = new System.Windows.Forms.PictureBox();
             this.lblDashboard = new System.Windows.Forms.Label();
@@ -78,7 +76,6 @@ namespace VisitorReg.WinForm.Admin
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkUserProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linkAudit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkManageUsers)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
@@ -128,8 +125,6 @@ namespace VisitorReg.WinForm.Admin
             this.pnlLeft.Controls.Add(this.linkLogout);
             this.pnlLeft.Controls.Add(this.label8);
             this.pnlLeft.Controls.Add(this.linkUserProfile);
-            this.pnlLeft.Controls.Add(this.label2);
-            this.pnlLeft.Controls.Add(this.linkAudit);
             this.pnlLeft.Controls.Add(this.lblManageUser);
             this.pnlLeft.Controls.Add(this.linkManageUsers);
             this.pnlLeft.Controls.Add(this.lblDashboard);
@@ -138,7 +133,7 @@ namespace VisitorReg.WinForm.Admin
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 50);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(260, 1024);
+            this.pnlLeft.Size = new System.Drawing.Size(260, 808);
             this.pnlLeft.TabIndex = 6;
             // 
             // label23
@@ -168,7 +163,7 @@ namespace VisitorReg.WinForm.Admin
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(99, 985);
+            this.label9.Location = new System.Drawing.Point(99, 830);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 17);
             this.label9.TabIndex = 13;
@@ -178,7 +173,7 @@ namespace VisitorReg.WinForm.Admin
             // 
             this.linkLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLogout.Image = ((System.Drawing.Image)(resources.GetObject("linkLogout.Image")));
-            this.linkLogout.Location = new System.Drawing.Point(56, 858);
+            this.linkLogout.Location = new System.Drawing.Point(56, 703);
             this.linkLogout.Name = "linkLogout";
             this.linkLogout.Size = new System.Drawing.Size(135, 124);
             this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,7 +185,7 @@ namespace VisitorReg.WinForm.Admin
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(99, 827);
+            this.label8.Location = new System.Drawing.Point(99, 672);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 17);
             this.label8.TabIndex = 11;
@@ -200,33 +195,12 @@ namespace VisitorReg.WinForm.Admin
             // 
             this.linkUserProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkUserProfile.Image = ((System.Drawing.Image)(resources.GetObject("linkUserProfile.Image")));
-            this.linkUserProfile.Location = new System.Drawing.Point(56, 700);
+            this.linkUserProfile.Location = new System.Drawing.Point(56, 545);
             this.linkUserProfile.Name = "linkUserProfile";
             this.linkUserProfile.Size = new System.Drawing.Size(135, 124);
             this.linkUserProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkUserProfile.TabIndex = 12;
             this.linkUserProfile.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(82, 668);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Audit Log";
-            // 
-            // linkAudit
-            // 
-            this.linkAudit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkAudit.Image = ((System.Drawing.Image)(resources.GetObject("linkAudit.Image")));
-            this.linkAudit.Location = new System.Drawing.Point(56, 541);
-            this.linkAudit.Name = "linkAudit";
-            this.linkAudit.Size = new System.Drawing.Size(135, 124);
-            this.linkAudit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.linkAudit.TabIndex = 10;
-            this.linkAudit.TabStop = false;
             // 
             // lblManageUser
             // 
@@ -298,7 +272,7 @@ namespace VisitorReg.WinForm.Admin
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(260, 1028);
+            this.panel3.Location = new System.Drawing.Point(260, 812);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1419, 46);
             this.panel3.TabIndex = 8;
@@ -573,7 +547,7 @@ namespace VisitorReg.WinForm.Admin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1679, 1074);
+            this.ClientSize = new System.Drawing.Size(1679, 858);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpPagination);
             this.Controls.Add(this.lblManageUsers);
@@ -594,7 +568,6 @@ namespace VisitorReg.WinForm.Admin
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkUserProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linkAudit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkManageUsers)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -620,8 +593,6 @@ namespace VisitorReg.WinForm.Admin
         private System.Windows.Forms.PictureBox linkLogout;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox linkUserProfile;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox linkAudit;
         private System.Windows.Forms.Label lblManageUser;
         private System.Windows.Forms.PictureBox linkManageUsers;
         private System.Windows.Forms.Label lblDashboard;

@@ -13,6 +13,7 @@ using VisitorReg.Lib.WinForm;
 using VisitorReg.Lib.WinForm.Enum;
 using VisitorReg.Lib.WinForm.Models.User;
 using VisitorReg.View;
+using VisitorReg.View.Admin;
 
 namespace VisitorReg.WinForm.Admin
 {
@@ -263,12 +264,16 @@ namespace VisitorReg.WinForm.Admin
 
         private void linkListVisitor_Click(object sender, EventArgs e)
         {
-
+            var visitorList = new ListVisitor();
+            visitorList.Show();
+            this.Hide();
         }
 
         private void menuDashboard_Click(object sender, EventArgs e)
         {
-
+            var dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
         }
     }
 }

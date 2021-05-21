@@ -60,6 +60,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminProfile.Designer.cs">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisitorRegDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AdminProfile.resx">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

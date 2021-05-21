@@ -11,55 +11,17 @@ using VisitorReg.DAL;
 using VisitorReg.Lib.WinForm;
 using VisitorReg.Lib.WinForm.Enum;
 using VisitorReg.Lib.WinForm.Models.User;
+using VisitorReg.View;
+using VisitorReg.View.Admin;
 
-namespace VisitorReg.View.Guard
+namespace VisitorReg.WinForm.Admin
 {
-    public partial class UserProfile : Form
+    public partial class AdminProfile : Form
     {
         private UserService _userService = new UserService();
-        public UserProfile()
+        public AdminProfile()
         {
             InitializeComponent();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var frmLogin = new Login();
-            frmLogin.Show();
-        }
-
-        private void linkListVisitor_Click(object sender, EventArgs e)
-        {
-            var listVisitor = new ListVisitor();
-            listVisitor.Show();
-            this.Hide();
-        }
-
-        private void linkDashboard_Click(object sender, EventArgs e)
-        {
-            var register = new RegisterVisitor();
-            register.Show();
-            this.Hide();
-        }
-
-        private void UserProfile_Load(object sender, EventArgs e)
-        {
-            LoadUser();
-        }
-
-        private void LoadUser()
-        {
-            txtName.Text = UserInfo.Name;
-            txtUsername.Text = UserInfo.Username;
-            txtContactNo.Text = UserInfo.ContactNo;
-            txtEmail.Text = UserInfo.Email;
-            txtRole.Text = UserInfo.Role;
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            LoadUser();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -74,7 +36,7 @@ namespace VisitorReg.View.Guard
 
             var result = _userService.UpdateUserProfile(userModel);
 
-            if(result.MessageType == MessageType.Success)
+            if (result.MessageType == MessageType.Success)
             {
                 LoadUser();
             }
@@ -93,7 +55,14 @@ namespace VisitorReg.View.Guard
                 txtOldPass.Text = "";
             }
         }
-
+        private void LoadUser()
+        {
+            txtName.Text = UserInfo.Name;
+            txtUsername.Text = UserInfo.Username;
+            txtContactNo.Text = UserInfo.ContactNo;
+            txtEmail.Text = UserInfo.Email;
+            txtRole.Text = UserInfo.Role;
+        }
         private bool validatePassword()
         {
             if (_userService.CurrentPassword(txtOldPass.Text))
@@ -106,7 +75,7 @@ namespace VisitorReg.View.Guard
                 return false;
             }
 
-            if(txtNewPass.Text.Length == 0)
+            if (txtNewPass.Text.Length == 0)
             {
                 lblNewPassRequired.Show();
                 return false;
@@ -128,9 +97,33 @@ namespace VisitorReg.View.Guard
             return true;
         }
 
-        private void txtOldPass_TextChanged(object sender, EventArgs e)
+        private void linkManageUsers_Click(object sender, EventArgs e)
         {
+            var listVisitor = new ListVisitor();
+            listVisitor.Show();
+            this.Hide();
+        }
 
+        private void linkListVisitor_Click(object sender, EventArgs e)
+        {
+            var visitorList = new ListVisitor();
+            visitorList.Show();
+            this.Hide();
+        }
+
+        private void menuDashboard_Click(object sender, EventArgs e)
+        {
+            var dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void linkLogout_Click(object sender, EventArgs e)
+        {
+            _userService.Logout();
+            this.Hide();
+            var login = new Login();
+            login.Show();
         }
     }
 }

@@ -54,7 +54,6 @@ namespace VisitorReg.WinForm.Admin
 
                 int PreviousPageOffSet = page == 1 ? PgSize : (page - 1) * PgSize;
 
-                //var sql = "select TOP " + PreviousPageOffSet + " ROW_NUMBER() OVER(ORDER BY b.id ASC) AS #,a.Name,a.ICNo as 'IC No.',a.OldICNo as 'Old Ic No.'," +
                 var sql = "select TOP " + PreviousPageOffSet + " b.id AS Id,a.Name,a.ICNo as 'IC No.',a.OldICNo as 'Old Ic No.'," +
                       " b.NoPlate as 'Car No. Plate',b.PassNo as 'Pass No.',b.HouseNo as 'House No.',b.PurposeVisit as 'Purpose of visit',b.DateTimeIn as 'Date & Time In'," +
                       " b.DateTimeOut as 'Date & Time Out', b.CreatedDate as 'Created Date',b.CreatedBy as 'Created By' from VisitorInfo a " +
@@ -262,6 +261,11 @@ namespace VisitorReg.WinForm.Admin
             var manage = new ManageUser();
             manage.Show();
             this.Hide();
+        }
+
+        private void linkUserProfile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
