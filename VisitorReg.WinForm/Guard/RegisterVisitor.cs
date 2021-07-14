@@ -14,6 +14,7 @@ namespace VisitorReg.View.Guard
     {
         private VisitorService _visitorService = new VisitorService();
         private UserService userService = new UserService();
+        //private OwnerService ownerService = new OwnerService();
         public RegisterVisitor()
         {
             InitializeComponent();
@@ -172,6 +173,7 @@ namespace VisitorReg.View.Guard
             {
                 lblHouseNoRequired.Hide();
                 txtHouseNo.Text.ToUpper();
+                //if()
             }
         }
 
@@ -458,6 +460,10 @@ namespace VisitorReg.View.Guard
                     picVisitor.ImageLocation = visitor.PhotoUrl.Length > 0 ? visitor.PhotoUrl : "Images/anonymity.png";
                 }
             }
+        }
+        private void GetNotesFromOwner(string houseNo)
+        {
+            
         }
         #endregion
     }

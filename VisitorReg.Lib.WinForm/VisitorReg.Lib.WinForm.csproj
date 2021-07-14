@@ -64,6 +64,7 @@
     <Compile Include="Enum\MessageType.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="Models\Messages\ResponseMessageModel.cs" />
+    <Compile Include="Models\Owner\OwnerNotesModel.cs" />
     <Compile Include="Models\User\LoginUserModel.cs" />
     <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Models\Visitor\DashboardModel.cs" />
