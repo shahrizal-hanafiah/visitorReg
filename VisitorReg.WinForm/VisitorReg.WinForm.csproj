@@ -93,6 +93,18 @@
     <Compile Include="Guard\ListVisitor.Designer.cs">
       <DependentUpon>ListVisitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guard\NotesOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guard\NotesOwner.Designer.cs">
+      <DependentUpon>NotesOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guard\OwnerNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guard\OwnerNotes.Designer.cs">
+      <DependentUpon>OwnerNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guard\RegisterVisitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Guard\ListVisitor.resx">
       <DependentUpon>ListVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guard\NotesOwner.resx">
+      <DependentUpon>NotesOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guard\OwnerNotes.resx">
+      <DependentUpon>OwnerNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Guard\RegisterVisitor.resx">
       <DependentUpon>RegisterVisitor.cs</DependentUpon>

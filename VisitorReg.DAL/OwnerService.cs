@@ -1,6 +1,8 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +27,7 @@ namespace VisitorReg.DAL
             string sql;
             SqlConnection cnn;
 
-            sql = "SELECT OwnerNotes,OwnerNotesDesc,ExpiryDate from OwnerNotes where OwnerHouseNo = @OwnerHouseNo";
+            sql = "SELECT OwnerNotes,OwnerNotesDesc,ExpiryDate from OwnerNotes where OwnerHouseNo = @OwnerHouseNo and IsActive = 1";
 
             using (cnn = new SqlConnection(_connectionString))
             {
@@ -34,6 +36,22 @@ namespace VisitorReg.DAL
                 {
                     SqlCommand cmd = new SqlCommand(sql, cnn);
                     cmd.Parameters.Add("@OwnerHouseNo", SqlDbType.VarChar).Value = ownerHouse;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            OwnerNotesModel ownerDet = new OwnerNotesModel();
+                            ownerDet.OwnerNotes = reader.GetString(0);
+                            ownerDet.OwnerNotesDesc = reader.GetString(1);
+                            ownerDet.NotesExpiryDate = reader.GetDateTime(2);
+                            reader.NextResult();
+                            notes.Add(ownerDet);
+                        }
+                        reader.NextResult();
+                    }
+                    log.Debug($"Get Owner Notes");
                 }
                 catch (Exception ex)
                 {

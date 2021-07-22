@@ -108,6 +108,8 @@ namespace VisitorReg.View.Guard
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
@@ -118,6 +120,7 @@ namespace VisitorReg.View.Guard
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -228,6 +231,8 @@ namespace VisitorReg.View.Guard
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.pnlLeft.Controls.Add(this.label16);
+            this.pnlLeft.Controls.Add(this.pictureBox1);
             this.pnlLeft.Controls.Add(this.label23);
             this.pnlLeft.Controls.Add(this.linkListVisitor);
             this.pnlLeft.Controls.Add(this.label2);
@@ -248,7 +253,7 @@ namespace VisitorReg.View.Guard
             this.label23.AutoSize = true;
             this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label23.Location = new System.Drawing.Point(77, 385);
+            this.label23.Location = new System.Drawing.Point(77, 375);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(73, 17);
             this.label23.TabIndex = 9;
@@ -258,7 +263,7 @@ namespace VisitorReg.View.Guard
             // 
             this.linkListVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkListVisitor.Image = ((System.Drawing.Image)(resources.GetObject("linkListVisitor.Image")));
-            this.linkListVisitor.Location = new System.Drawing.Point(48, 246);
+            this.linkListVisitor.Location = new System.Drawing.Point(48, 236);
             this.linkListVisitor.Name = "linkListVisitor";
             this.linkListVisitor.Size = new System.Drawing.Size(135, 136);
             this.linkListVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,7 +276,7 @@ namespace VisitorReg.View.Guard
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(87, 750);
+            this.label2.Location = new System.Drawing.Point(87, 927);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 7;
@@ -281,7 +286,7 @@ namespace VisitorReg.View.Guard
             // 
             this.linkLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLogout.Image = ((System.Drawing.Image)(resources.GetObject("linkLogout.Image")));
-            this.linkLogout.Location = new System.Drawing.Point(48, 623);
+            this.linkLogout.Location = new System.Drawing.Point(48, 800);
             this.linkLogout.Name = "linkLogout";
             this.linkLogout.Size = new System.Drawing.Size(135, 124);
             this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +299,7 @@ namespace VisitorReg.View.Guard
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(91, 569);
+            this.label1.Location = new System.Drawing.Point(91, 746);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 5;
@@ -304,7 +309,7 @@ namespace VisitorReg.View.Guard
             // 
             this.linkProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkProfile.Image = ((System.Drawing.Image)(resources.GetObject("linkProfile.Image")));
-            this.linkProfile.Location = new System.Drawing.Point(48, 430);
+            this.linkProfile.Location = new System.Drawing.Point(48, 607);
             this.linkProfile.Name = "linkProfile";
             this.linkProfile.Size = new System.Drawing.Size(135, 136);
             this.linkProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1119,6 +1124,28 @@ namespace VisitorReg.View.Guard
             this.label10.TabIndex = 62;
             this.label10.Text = "Visit Details";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label16.Location = new System.Drawing.Point(77, 567);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 17);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Owner Notes";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(48, 428);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(135, 136);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // RegisterVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1151,6 +1178,7 @@ namespace VisitorReg.View.Guard
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1233,5 +1261,7 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RichTextBox txtAddress;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

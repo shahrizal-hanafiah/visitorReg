@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -6,7 +7,9 @@ using System.Windows.Forms;
 using VisitorReg.DAL;
 using VisitorReg.Lib.WinForm;
 using VisitorReg.Lib.WinForm.Enum;
+using VisitorReg.Lib.WinForm.Models.Owner;
 using VisitorReg.Lib.WinForm.Models.Visitor;
+using VisitorReg.WinForm.Guard;
 
 namespace VisitorReg.View.Guard
 {
@@ -14,7 +17,7 @@ namespace VisitorReg.View.Guard
     {
         private VisitorService _visitorService = new VisitorService();
         private UserService userService = new UserService();
-        //private OwnerService ownerService = new OwnerService();
+        private OwnerService _ownerService = new OwnerService();
         public RegisterVisitor()
         {
             InitializeComponent();
@@ -173,7 +176,11 @@ namespace VisitorReg.View.Guard
             {
                 lblHouseNoRequired.Hide();
                 txtHouseNo.Text.ToUpper();
-                //if()
+                if (GetNotesFromOwner(txtHouseNo.Text) != null)
+                {
+                    var notes = new NotesOwner();
+                    notes.Show();
+                }
             }
         }
 
@@ -284,6 +291,9 @@ namespace VisitorReg.View.Guard
             lblDatetimeOutRequired.Hide();
             picVisitor.ImageLocation = "Images/anonymity.png";
             lblOthers.Text = "Remarks";
+
+            var notes = new NotesOwner();
+            notes.Hide();
         }
 
         private bool Validation()
@@ -461,10 +471,13 @@ namespace VisitorReg.View.Guard
                 }
             }
         }
-        private void GetNotesFromOwner(string houseNo)
+        private List<OwnerNotesModel> GetNotesFromOwner(string houseNo)
         {
-            
-        }
+            if (string.IsNullOrEmpty(houseNo))
+                return _ownerService.GetOwnerNotes(houseNo);
+
+            return null;
+        }   
         #endregion
     }
 }
