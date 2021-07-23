@@ -46,19 +46,19 @@ namespace VisitorReg.WinForm.Guard
             this.lblMainNavi = new System.Windows.Forms.Label();
             this.menuDashboard = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dtExpired = new System.Windows.Forms.DateTimePicker();
+            this.lblExpired = new System.Windows.Forms.Label();
+            this.txtDesc = new System.Windows.Forms.RichTextBox();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.cmbHouseNo = new System.Windows.Forms.ComboBox();
             this.lblNameRequired = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtNotes = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblHouseNo = new System.Windows.Forms.Label();
-            this.cmbHouseNo = new System.Windows.Forms.ComboBox();
-            this.txtDesc = new System.Windows.Forms.RichTextBox();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.lblExpired = new System.Windows.Forms.Label();
-            this.dtExpired = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,7 +77,7 @@ namespace VisitorReg.WinForm.Guard
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1472, 50);
+            this.panel1.Size = new System.Drawing.Size(1644, 50);
             this.panel1.TabIndex = 1;
             // 
             // lblVisitor
@@ -108,7 +108,7 @@ namespace VisitorReg.WinForm.Guard
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 50);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(240, 753);
+            this.pnlLeft.Size = new System.Drawing.Size(240, 850);
             this.pnlLeft.TabIndex = 2;
             // 
             // label16
@@ -134,6 +134,7 @@ namespace VisitorReg.WinForm.Guard
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label23
             // 
@@ -156,6 +157,7 @@ namespace VisitorReg.WinForm.Guard
             this.linkListVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkListVisitor.TabIndex = 10;
             this.linkListVisitor.TabStop = false;
+            this.linkListVisitor.Click += new System.EventHandler(this.linkListVisitor_Click);
             // 
             // label2
             // 
@@ -178,6 +180,7 @@ namespace VisitorReg.WinForm.Guard
             this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkLogout.TabIndex = 8;
             this.linkLogout.TabStop = false;
+            this.linkLogout.Click += new System.EventHandler(this.linkLogout_Click);
             // 
             // label1
             // 
@@ -200,6 +203,7 @@ namespace VisitorReg.WinForm.Guard
             this.linkProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linkProfile.TabIndex = 6;
             this.linkProfile.TabStop = false;
+            this.linkProfile.Click += new System.EventHandler(this.linkProfile_Click);
             // 
             // lblDashboard
             // 
@@ -240,6 +244,7 @@ namespace VisitorReg.WinForm.Guard
             this.menuDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menuDashboard.TabIndex = 4;
             this.menuDashboard.TabStop = false;
+            this.menuDashboard.Click += new System.EventHandler(this.menuDashboard_Click);
             // 
             // groupBox1
             // 
@@ -263,6 +268,73 @@ namespace VisitorReg.WinForm.Guard
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profile";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(576, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.TabIndex = 77;
+            this.label4.Text = "* Required";
+            this.label4.Visible = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(176, 621);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(119, 29);
+            this.checkBox1.TabIndex = 76;
+            this.checkBox1.Text = "Is Active?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // dtExpired
+            // 
+            this.dtExpired.Location = new System.Drawing.Point(176, 549);
+            this.dtExpired.Name = "dtExpired";
+            this.dtExpired.Size = new System.Drawing.Size(392, 30);
+            this.dtExpired.TabIndex = 75;
+            // 
+            // lblExpired
+            // 
+            this.lblExpired.AutoSize = true;
+            this.lblExpired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpired.Location = new System.Drawing.Point(16, 558);
+            this.lblExpired.Name = "lblExpired";
+            this.lblExpired.Size = new System.Drawing.Size(96, 20);
+            this.lblExpired.TabIndex = 74;
+            this.lblExpired.Text = "Expiry Date";
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(176, 267);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(1016, 238);
+            this.txtDesc.TabIndex = 73;
+            this.txtDesc.Text = "";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(16, 274);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(95, 20);
+            this.lblDesc.TabIndex = 72;
+            this.lblDesc.Text = "Description";
+            // 
+            // cmbHouseNo
+            // 
+            this.cmbHouseNo.FormattingEnabled = true;
+            this.cmbHouseNo.Location = new System.Drawing.Point(176, 49);
+            this.cmbHouseNo.Name = "cmbHouseNo";
+            this.cmbHouseNo.Size = new System.Drawing.Size(392, 33);
+            this.cmbHouseNo.TabIndex = 71;
             // 
             // lblNameRequired
             // 
@@ -330,79 +402,12 @@ namespace VisitorReg.WinForm.Guard
             this.lblHouseNo.TabIndex = 0;
             this.lblHouseNo.Text = "House No.";
             // 
-            // cmbHouseNo
-            // 
-            this.cmbHouseNo.FormattingEnabled = true;
-            this.cmbHouseNo.Location = new System.Drawing.Point(176, 49);
-            this.cmbHouseNo.Name = "cmbHouseNo";
-            this.cmbHouseNo.Size = new System.Drawing.Size(392, 33);
-            this.cmbHouseNo.TabIndex = 71;
-            // 
-            // txtDesc
-            // 
-            this.txtDesc.Location = new System.Drawing.Point(176, 267);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(1016, 238);
-            this.txtDesc.TabIndex = 73;
-            this.txtDesc.Text = "";
-            // 
-            // lblDesc
-            // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesc.Location = new System.Drawing.Point(16, 274);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(95, 20);
-            this.lblDesc.TabIndex = 72;
-            this.lblDesc.Text = "Description";
-            // 
-            // lblExpired
-            // 
-            this.lblExpired.AutoSize = true;
-            this.lblExpired.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpired.Location = new System.Drawing.Point(16, 558);
-            this.lblExpired.Name = "lblExpired";
-            this.lblExpired.Size = new System.Drawing.Size(96, 20);
-            this.lblExpired.TabIndex = 74;
-            this.lblExpired.Text = "Expiry Date";
-            // 
-            // dtExpired
-            // 
-            this.dtExpired.Location = new System.Drawing.Point(176, 549);
-            this.dtExpired.Name = "dtExpired";
-            this.dtExpired.Size = new System.Drawing.Size(392, 30);
-            this.dtExpired.TabIndex = 75;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(176, 621);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(119, 29);
-            this.checkBox1.TabIndex = 76;
-            this.checkBox1.Text = "Is Active?";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(576, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
-            this.label4.TabIndex = 77;
-            this.label4.Text = "* Required";
-            this.label4.Visible = false;
-            // 
             // OwnerNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1472, 803);
+            this.ClientSize = new System.Drawing.Size(1644, 900);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlLeft);
             this.Controls.Add(this.panel1);

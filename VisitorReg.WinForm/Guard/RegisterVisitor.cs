@@ -477,7 +477,19 @@ namespace VisitorReg.View.Guard
                 return _ownerService.GetOwnerNotes(houseNo);
 
             return null;
-        }   
+        }
         #endregion
+
+        private void linkOwnerNotes_Click(object sender, EventArgs e)
+        {
+            var ownerNotes = new OwnerNotes();
+            ownerNotes.Show();
+            this.Hide();
+        }
+
+        private void menuDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

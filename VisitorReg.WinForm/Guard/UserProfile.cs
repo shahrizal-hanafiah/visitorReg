@@ -11,6 +11,7 @@ using VisitorReg.DAL;
 using VisitorReg.Lib.WinForm;
 using VisitorReg.Lib.WinForm.Enum;
 using VisitorReg.Lib.WinForm.Models.User;
+using VisitorReg.WinForm.Guard;
 
 namespace VisitorReg.View.Guard
 {
@@ -131,6 +132,13 @@ namespace VisitorReg.View.Guard
         private void txtOldPass_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkOwnerNotes_Click(object sender, EventArgs e)
+        {
+            var ownerNotes = new OwnerNotes();
+            ownerNotes.Show();
+            this.Hide();
         }
     }
 }

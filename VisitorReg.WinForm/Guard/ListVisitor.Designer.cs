@@ -35,6 +35,8 @@ namespace VisitorReg.View.Guard
             this.lblMainNavi = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.linkOwnerNotes = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.linkListVisitor = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,6 +64,7 @@ namespace VisitorReg.View.Guard
             this.btnNextPage = new System.Windows.Forms.Button();
             this.btnFirstPage = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDateOut = new System.Windows.Forms.DateTimePicker();
             this.txtId = new System.Windows.Forms.Label();
             this.txtDateTimeIn = new System.Windows.Forms.RichTextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -76,10 +79,10 @@ namespace VisitorReg.View.Guard
             this.cmbHourOut = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtDateOut = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linkOwnerNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).BeginInit();
@@ -135,6 +138,8 @@ namespace VisitorReg.View.Guard
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.pnlLeft.Controls.Add(this.label16);
+            this.pnlLeft.Controls.Add(this.linkOwnerNotes);
             this.pnlLeft.Controls.Add(this.label23);
             this.pnlLeft.Controls.Add(this.linkListVisitor);
             this.pnlLeft.Controls.Add(this.label2);
@@ -150,13 +155,36 @@ namespace VisitorReg.View.Guard
             this.pnlLeft.Size = new System.Drawing.Size(240, 936);
             this.pnlLeft.TabIndex = 2;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label16.Location = new System.Drawing.Point(77, 568);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 17);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Owner Notes";
+            // 
+            // linkOwnerNotes
+            // 
+            this.linkOwnerNotes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkOwnerNotes.Image = ((System.Drawing.Image)(resources.GetObject("linkOwnerNotes.Image")));
+            this.linkOwnerNotes.Location = new System.Drawing.Point(48, 429);
+            this.linkOwnerNotes.Name = "linkOwnerNotes";
+            this.linkOwnerNotes.Size = new System.Drawing.Size(135, 136);
+            this.linkOwnerNotes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkOwnerNotes.TabIndex = 16;
+            this.linkOwnerNotes.TabStop = false;
+            this.linkOwnerNotes.Click += new System.EventHandler(this.linkOwnerNotes_Click);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label23.Cursor = System.Windows.Forms.Cursors.Default;
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label23.Location = new System.Drawing.Point(77, 385);
+            this.label23.Location = new System.Drawing.Point(77, 372);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(75, 19);
             this.label23.TabIndex = 9;
@@ -167,7 +195,7 @@ namespace VisitorReg.View.Guard
             this.linkListVisitor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.linkListVisitor.Cursor = System.Windows.Forms.Cursors.Default;
             this.linkListVisitor.Image = ((System.Drawing.Image)(resources.GetObject("linkListVisitor.Image")));
-            this.linkListVisitor.Location = new System.Drawing.Point(48, 246);
+            this.linkListVisitor.Location = new System.Drawing.Point(48, 233);
             this.linkListVisitor.Name = "linkListVisitor";
             this.linkListVisitor.Size = new System.Drawing.Size(135, 136);
             this.linkListVisitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,7 +207,7 @@ namespace VisitorReg.View.Guard
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(87, 750);
+            this.label2.Location = new System.Drawing.Point(87, 927);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 7;
@@ -189,7 +217,7 @@ namespace VisitorReg.View.Guard
             // 
             this.linkLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLogout.Image = ((System.Drawing.Image)(resources.GetObject("linkLogout.Image")));
-            this.linkLogout.Location = new System.Drawing.Point(48, 623);
+            this.linkLogout.Location = new System.Drawing.Point(48, 800);
             this.linkLogout.Name = "linkLogout";
             this.linkLogout.Size = new System.Drawing.Size(135, 124);
             this.linkLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -202,7 +230,7 @@ namespace VisitorReg.View.Guard
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(91, 569);
+            this.label1.Location = new System.Drawing.Point(91, 746);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 5;
@@ -212,7 +240,7 @@ namespace VisitorReg.View.Guard
             // 
             this.linkProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkProfile.Image = ((System.Drawing.Image)(resources.GetObject("linkProfile.Image")));
-            this.linkProfile.Location = new System.Drawing.Point(48, 430);
+            this.linkProfile.Location = new System.Drawing.Point(48, 607);
             this.linkProfile.Name = "linkProfile";
             this.linkProfile.Size = new System.Drawing.Size(135, 136);
             this.linkProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -456,6 +484,13 @@ namespace VisitorReg.View.Guard
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Date and Time Out";
             // 
+            // txtDateOut
+            // 
+            this.txtDateOut.Location = new System.Drawing.Point(662, 26);
+            this.txtDateOut.Name = "txtDateOut";
+            this.txtDateOut.Size = new System.Drawing.Size(230, 22);
+            this.txtDateOut.TabIndex = 93;
+            // 
             // txtId
             // 
             this.txtId.AutoSize = true;
@@ -670,13 +705,6 @@ namespace VisitorReg.View.Guard
             this.label26.TabIndex = 82;
             this.label26.Text = "Date Out";
             // 
-            // txtDateOut
-            // 
-            this.txtDateOut.Location = new System.Drawing.Point(662, 26);
-            this.txtDateOut.Name = "txtDateOut";
-            this.txtDateOut.Size = new System.Drawing.Size(230, 22);
-            this.txtDateOut.TabIndex = 93;
-            // 
             // ListVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -702,6 +730,7 @@ namespace VisitorReg.View.Guard
             this.panel2.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linkOwnerNotes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).EndInit();
@@ -767,5 +796,7 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label txtId;
         private System.Windows.Forms.DateTimePicker txtDateOut;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox linkOwnerNotes;
     }
 }

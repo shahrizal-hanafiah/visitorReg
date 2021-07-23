@@ -43,6 +43,8 @@ namespace VisitorReg.View.Guard
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblMainNavi = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.linkOwnerNotes = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.linkListVisitor = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -108,19 +110,17 @@ namespace VisitorReg.View.Guard
             this.txtPassNo = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuDashboard)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linkOwnerNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -207,6 +207,7 @@ namespace VisitorReg.View.Guard
             this.menuDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menuDashboard.TabIndex = 4;
             this.menuDashboard.TabStop = false;
+            this.menuDashboard.Click += new System.EventHandler(this.menuDashboard_Click);
             // 
             // panel2
             // 
@@ -232,7 +233,7 @@ namespace VisitorReg.View.Guard
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
             this.pnlLeft.Controls.Add(this.label16);
-            this.pnlLeft.Controls.Add(this.pictureBox1);
+            this.pnlLeft.Controls.Add(this.linkOwnerNotes);
             this.pnlLeft.Controls.Add(this.label23);
             this.pnlLeft.Controls.Add(this.linkListVisitor);
             this.pnlLeft.Controls.Add(this.label2);
@@ -247,6 +248,29 @@ namespace VisitorReg.View.Guard
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(240, 932);
             this.pnlLeft.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label16.Location = new System.Drawing.Point(77, 567);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 17);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Owner Notes";
+            // 
+            // linkOwnerNotes
+            // 
+            this.linkOwnerNotes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkOwnerNotes.Image = ((System.Drawing.Image)(resources.GetObject("linkOwnerNotes.Image")));
+            this.linkOwnerNotes.Location = new System.Drawing.Point(48, 428);
+            this.linkOwnerNotes.Name = "linkOwnerNotes";
+            this.linkOwnerNotes.Size = new System.Drawing.Size(135, 136);
+            this.linkOwnerNotes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.linkOwnerNotes.TabIndex = 12;
+            this.linkOwnerNotes.TabStop = false;
+            this.linkOwnerNotes.Click += new System.EventHandler(this.linkOwnerNotes_Click);
             // 
             // label23
             // 
@@ -1124,28 +1148,6 @@ namespace VisitorReg.View.Guard
             this.label10.TabIndex = 62;
             this.label10.Text = "Visit Details";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label16.Location = new System.Drawing.Point(77, 567);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 17);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Owner Notes";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 428);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // RegisterVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1172,13 +1174,13 @@ namespace VisitorReg.View.Guard
             this.panel2.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linkOwnerNotes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkListVisitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkProfile)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picVisitor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1262,6 +1264,6 @@ namespace VisitorReg.View.Guard
         private System.Windows.Forms.RichTextBox txtAddress;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox linkOwnerNotes;
     }
 }

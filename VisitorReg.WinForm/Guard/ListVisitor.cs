@@ -13,6 +13,7 @@ using VisitorReg.DAL;
 using VisitorReg.Lib.WinForm;
 using VisitorReg.Lib.WinForm.Enum;
 using VisitorReg.Lib.WinForm.Models.Visitor;
+using VisitorReg.WinForm.Guard;
 
 namespace VisitorReg.View.Guard
 {
@@ -260,6 +261,13 @@ namespace VisitorReg.View.Guard
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             PopulateTableVisitor(CurrentPageIndex);
+        }
+
+        private void linkOwnerNotes_Click(object sender, EventArgs e)
+        {
+            var ownerNotes = new OwnerNotes();
+            ownerNotes.Show();
+            this.Hide();
         }
     }
 }
